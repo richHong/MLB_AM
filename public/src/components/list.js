@@ -40,6 +40,7 @@ class List extends Component {
     }
   }
   render(){
+    console.log(this.props.games)
     return(
       <div className="list">
         {this.props.games.map((game,i) => {
