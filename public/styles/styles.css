@@ -79,8 +79,8 @@ table {
   -webkit-justify-content: flex-start; /* Safari */
   justify-content:         flex-start;
   overflow-x: auto;
-  border-top: 3px solid blue;
-  border-bottom: 3px solid blue;
+  border-top: 3px solid #000099;
+  border-bottom: 3px solid #000099;
 }
 .focus-thumbnail {
   border: 3px solid red;
@@ -91,6 +91,7 @@ table {
   margin-left: 5px;
 }
 .focus-game {
+  font-family: 'Archivo Narrow', sans-serif;
   transform: scale(1.25);
   flex: 1 1 0;
   margin-right: 20px;
@@ -99,7 +100,7 @@ table {
 .top-box {
   text-align: center;
   color: white;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 .bottom-box {
   text-align: center;
