@@ -11,23 +11,24 @@ class List extends Component {
   }
   componentWillMount () {
     document.addEventListener('keydown', event => {
-      this._handleKeyDown(event.key);
+      console.log(event)
+      this._handleKeyDown(event.keyCode);
     });
   }
   componentWillUnmount () {
     document.removeEventListener('keydown', event => {
-      this._handleKeyDown(event.key);
+      this._handleKeyDown(event.keyCode);
     });
   }
-  _handleKeyDown(key) {
+  _handleKeyDown(code) {
     let newIndex;
-    if (key === 'ArrowRight') {
+    if (code === 39) {
       newIndex = ++this.state.focusIndex;
       if (newIndex > this.props.games.length - 1) {
         newIndex = this.props.games.length - 1;
       }
       this.setState({focusIndex: newIndex});
-    } else if (key === 'ArrowLeft') {
+    } else if (code === 37) {
       newIndex = --this.state.focusIndex;
       if (newIndex < 0) {
         newIndex = 0;

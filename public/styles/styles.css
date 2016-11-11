@@ -111,7 +111,7 @@ table {
 .bottom-box {
   font-size: 0.70em;
 }
-.logo-container {
+.container {
   justify-content: center;
   display: flex;
   width: 100vw;
@@ -122,9 +122,6 @@ table {
 .calendar-container {
   position: fixed;
   top: 80vh;
-  justify-content: center;
-  display: flex;
-  width: 100vw;
 }
 @-webkit-keyframes glow 
 {
