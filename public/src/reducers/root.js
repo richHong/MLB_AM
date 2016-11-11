@@ -1,6 +1,4 @@
-export default function exampleReducer (state = {
-  example: 'Hello World!'
-}, action){
+export default function exampleReducer (state = [], action){
   switch (action.type) {
     default:
       return state;

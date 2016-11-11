@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import List from './list';
 
 class App extends Component {
+  componentWillMount(){
+
+  }
   render() {
     return (
-      <div>{this.props.example}</div>
+      <div>
+        <List />
+      </div>
     )
   }
 }
