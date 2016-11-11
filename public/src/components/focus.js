@@ -12,9 +12,9 @@ class Focus extends Component {
         </div>
         <img className='focus-thumbnail' src={this.props.game.video_thumbnails.thumbnail[0].content} />
         <div className='bottom-box'>
-        <span>{`${venue}`}</span>
-        <br/>
-        <span>{`${location}`}</span>
+          <span>{`${venue}`}</span>
+          <br/>
+          <span>{`${location}`}</span>
         </div>
       </div>
     );
