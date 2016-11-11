@@ -84,46 +84,50 @@ table {
 }
 .focus-thumbnail {
   border: 3px solid red;
+  -webkit-animation: glow 3s ease-in-out 1;
+  animation: glow 3s ease-in-out 1;
 }
 .game {
   flex: 1 1 0;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  opacity: 0.8;
 }
 .focus-game {
   font-family: 'Archivo Narrow', sans-serif;
   transform: scale(1.25);
-  flex: 1 1 0;
+  flex: 2 2 0;
   margin-right: 20px;
   margin-left: 20px;
+  white-space: nowrap;
 }
 .top-box {
   text-align: center;
   color: white;
-  font-size: 1em;
+  font-size: 0.85em;
   line-height: 120%;
 }
 .bottom-box {
   text-align: center;
   color:white;
-  font-size: 0.75em;
+  font-size: 0.70em;
   line-height: 120%;
 }
-.logo {
-  position: relative;
-  display: block;
-  height: 45vh;
-  left: 35vw;
+.logo-container {
+  justify-content: center;
+  display: flex;
+  width: 100vw;
 }
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) { 
-  .logo {
-    left: 17vw;
-    max-width:100%;
-  }
+.logo {
+  height: 40vh;
 }
 .list::-webkit-scrollbar {
  display: none;
 }
+@-webkit-keyframes glow 
+{
+  50% { box-shadow: 0 0 20px red; }
+}
+
+@keyframes glow 
+

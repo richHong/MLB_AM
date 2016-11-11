@@ -4,7 +4,7 @@ class Focus extends Component {
   render () {
     let {away_team_city, away_team_name, home_team_city, home_team_name, venue, location} = this.props.game;
     return (
-      <div id='focus' className='focus-game'>
+      <div id='focus' className='focus-game bounce'>
         <div className='top-box'>
           <span>{`${away_team_city} ${away_team_name}`}</span>
           <br/>

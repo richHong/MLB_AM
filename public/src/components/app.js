@@ -10,7 +10,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div className='logo-container'>
         <img className='logo' src='http://www.oneaccountproducts.com/images/MLB.png' />
+        </div>
         <List games={this.props.games}/>
       </div>
     )
