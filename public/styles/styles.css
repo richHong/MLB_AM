@@ -110,6 +110,15 @@ table {
 .logo {
   position: relative;
   display: block;
-  height: 50%;
+  height: 45vh;
   left: 35vw;
 }
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+  .logo {
+    left: 17vw;
+  }
+}
+
