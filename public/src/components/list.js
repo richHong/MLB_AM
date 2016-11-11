@@ -14,6 +14,11 @@ class List extends Component {
       this._handleKeyDown(event.key);
     });
   }
+  componentWillUnmount () {
+    document.removeEventListener('keydown', event => {
+      this._handleKeyDown(event.key);
+    });
+  }
   _handleKeyDown(key) {
     let newIndex;
     if (key === 'ArrowRight') {
@@ -29,8 +34,6 @@ class List extends Component {
       }
       this.setState({focusIndex: newIndex});
     }
-    const focus = document.getElementById('focus');
-    focus.scrollIntoView();
   }
   _renderGame(game,index){
     if (index === this.state.focusIndex) {
@@ -42,9 +45,9 @@ class List extends Component {
   render(){
     console.log(this.props.games)
     return(
-      <div className="list">
+      <div className='list'>
         {this.props.games.map((game,i) => {
-          return this._renderGame(game, i)
+          return this._renderGame(game,i)
         })}
       </div>  
     );

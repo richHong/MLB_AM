@@ -1,8 +1,10 @@
-export default function gameReducer (state = [], action){
-  switch (action.type) {
-    case 'RECEIVE_GAMES':
-      return action.payload;
-    default:
-      return state;
-  };
-};
+import { combineReducers } from 'redux';
+import gameReducer from './gameReducer';
+import dateReducer from './dateReducer';
+
+const rootReducer = combineReducers({
+  date: dateReducer,
+  games: gameReducer
+});
+
+export default rootReducer;

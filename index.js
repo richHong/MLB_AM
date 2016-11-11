@@ -4,11 +4,11 @@ import { Provider }         from 'react-redux';
 import thunk                from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 
-import gameReducer from './public/src/reducers/root';
+import rootReducer from './public/src/reducers/root';
 
 import App from './public/src/components/app';
 
-let store = createStore(gameReducer, applyMiddleware(thunk));
+let store = createStore(rootReducer, applyMiddleware(thunk));
 
 render(<Provider store={store}>
          <App />
