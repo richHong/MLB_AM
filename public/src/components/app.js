@@ -15,7 +15,7 @@ class App extends Component {
       <div>
         {this.props.games.length ? <DetailModal game={this.props.games[this.props.index]}/> : null}
         <Logo />
-        {this.props.games.length ? null : <div className='no-games'>NO GAMES AVAILABLE</div>}
+        {this.props.games.length ? null : <div className='no-games'>No Games Available</div>}
         <List games={this.props.games} />
         <Calendar />
       </div>
