@@ -4,6 +4,7 @@ import List from './list';
 import Logo from './logo';
 import Calendar from './calendar';
 import {fetchGames} from '../actions/actions';
+import DetailModal from './modal';
 
 class App extends Component {
   componentWillMount(){
@@ -12,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        {this.props.games.length ? <DetailModal game={this.props.games[this.props.index]}/> : null}
         <Logo />
         {this.props.games.length ? null : <div className='no-games'>NO GAMES AVAILABLE</div>}
         <List games={this.props.games} />
@@ -22,7 +24,8 @@ class App extends Component {
 }
 function mapStateToProps(state){
   return {
-    games: state.games
+    games: state.games,
+    index: state.index
   }
 }
 export default connect(mapStateToProps)(App);

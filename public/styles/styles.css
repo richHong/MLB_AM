@@ -105,10 +105,10 @@ table {
   color: white;
 }
 .top-box {
-  font-size: 0.9em;
+  font-size: 0.82em;
 }
 .bottom-box {
-  font-size: 0.70em;
+  font-size: 0.65em;
 }
 .container {
   justify-content: center;
@@ -117,6 +117,7 @@ table {
 }
 .logo {
   height: 40vh;
+  position: fixed;
 }
 .calendar-container {
   position: fixed;
@@ -127,11 +128,16 @@ table {
 .thumbnail {
   height: 70px;
   width: 124px;
+  margin-bottom: 0 !important;
+  padding: 0;
 }
 .no-games {
+  margin-top: 50vh;
   color: white;
   text-align: center;
   font-size: 2em;
+}
+.detail-modal {
 }
 @-webkit-keyframes glow 
 {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Game from './game';
 import Focus from './focus';
 import $ from 'jquery';
-import { changeIndex } from '../actions/actions';
+import { changeIndex, openModal } from '../actions/actions';
 
 class List extends Component {
   constructor(){
@@ -33,17 +33,18 @@ class List extends Component {
         newIndex = 0;
       }
       this.props.dispatch(changeIndex(newIndex));
+    } else if (code === 13) {
+      this.props.dispatch(openModal());
     }
   }
   _renderGame(game,index){
     if (index === this.props.index) {
-      return <Focus game={game} key={index} />
+      return (<Focus game={game} key={index} />);
     } else {
-      return <Game game={game} key={index} />
+      return (<Game game={game} key={index} />);
     }
   }
   render(){
-    console.log(this.props)
     return(
       <div className='list'>
         {this.props.games.map((game,i) => {
