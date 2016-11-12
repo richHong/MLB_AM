@@ -25,16 +25,12 @@ function fetchGames(date) {
 }
 function* updateGames(action) {
   try {
-    console.log('start request');
     const games = yield call(fetchGames, action.payload);
-    console.log('completed request');
     yield put(resetIndex());
     yield put(receiveGames(games));
   } catch (e) {
     console.log(e);
-  } finally {
-    console.log('end request');
-  }
+  } 
 }
 export function* gameSaga() {
   yield* takeLatest('UPDATE_GAMES', updateGames);
