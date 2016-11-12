@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class Logo extends Component {
   render(){
     return(
       <div className='container'>
-        <img className='logo' src='http://www.oneaccountproducts.com/images/MLB.png' />
+        <img className='logo' src='../../assets/logo.png' />
       </div>
     );
   }

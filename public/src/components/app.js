@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import List from './list';
 import Logo from './logo';
+import Spinner from './spinner';
 import Calendar from './calendar';
 import { fetchInitGames } from '../actions/actions';
 import DetailModal from './modal';
@@ -18,6 +19,7 @@ class App extends Component {
         {this.props.games.length ? null : <div className='no-games'>No Games Available</div>}
         <List games={this.props.games} />
         <Calendar />
+        {this.props.showSpinner ? <Spinner /> : null}
       </div>
     )
   }
@@ -25,7 +27,8 @@ class App extends Component {
 function mapStateToProps(state){
   return {
     games: state.games,
-    index: state.index
+    index: state.index,
+    showSpinner: state.showSpinner
   }
 }
 export default connect(mapStateToProps)(App);

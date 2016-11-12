@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { toggleModal } from '../actions/actions';
 import _ from 'underscore';
-const replaceImg = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
+const replaceImg = '../../assets/replace.png';
 
 class DetailModal extends Component {
   _toggle(){

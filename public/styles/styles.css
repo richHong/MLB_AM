@@ -153,6 +153,13 @@ table {
 .modal-pic {
   transform: scale(1.5);
 }
+.spinner-container {
+  position: fixed;
+  top: 86vh;
+}
+.spinner {
+  height: 10vh;
+}
 @-webkit-keyframes glow 
 {
   50% { box-shadow: 0 0 20px red; }

@@ -50,3 +50,13 @@ export function toggleModal(){
     type: 'TOGGLE_MODAL'
   };
 }
+export function spinnerActive() {
+  return {
+    type: 'SPINNER_ACTIVE'
+  };
+}
+export function spinnerInactive() {
+  return {
+    type: 'SPINNER_INACTIVE'
+  };
+}

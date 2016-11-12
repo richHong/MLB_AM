@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-const replaceImg = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
+const replaceImg = '../../assets/replace.png';
 
 class Focus extends Component {
   componentDidMount(){

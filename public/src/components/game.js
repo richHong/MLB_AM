@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-const replaceImg = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
+const replaceImg = '../../assets/replace.png';
+
 class Game extends Component {
   _imgError(image) {
     image.onerror = '';
