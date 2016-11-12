@@ -7,7 +7,7 @@ import _ from 'underscore';
 class Calendar extends Component {
   constructor(){
     super();
-    this._updateGameDay = _.debounce(this._updateGameDay, 20);
+    this._updateGameDay = _.debounce(this._updateGameDay, 90);
   }
   componentWillMount () {
     $(document).on('keydown', event => {
