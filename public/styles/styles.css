@@ -80,6 +80,7 @@ table {
   height: 50vh;
   background-color: rgb(32, 32, 32, 0.2);
   overflow-x: auto;
+  padding-right: 10px;
 }
 .list::-webkit-scrollbar {
  display: none;
@@ -134,7 +135,6 @@ table {
 .no-games {
   color: white;
   text-align: center;
-  justify-content: center;
 }
 @-webkit-keyframes glow 
 {
