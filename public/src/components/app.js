@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div>
         <Logo />
-        {this.props.games.length ? null : <div className='no-games'><h2>NO GAMES AVAILABLE</h2></div>}
+        {this.props.games.length ? null : <div className='no-games'>NO GAMES AVAILABLE</div>}
         <List games={this.props.games} />
         <Calendar />
       </div>

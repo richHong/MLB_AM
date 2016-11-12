@@ -135,6 +135,7 @@ table {
 .no-games {
   color: white;
   text-align: center;
+  font-size: 2em;
 }
 @-webkit-keyframes glow 
 {
