@@ -8,8 +8,13 @@ class DetailModal extends Component {
   _toggle(){
     this.props.dispatch(toggleModal());
   }
+  _imgError(image) {
+    image.onerror = '';
+    image.src = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
+    return true;
+  }
   render(){
-    let {away_team_city, away_team_name, home_team_city, home_team_name, venue, location, video_thumbnail} = this.props.game;
+    const {away_team_city, away_team_name, home_team_city, home_team_name, venue, location, video_thumbnail} = this.props.game;
     return(
       <div>
         <Modal show={this.props.showModal} onHide={e => this._toggle()} bsSize='small' >
@@ -18,7 +23,7 @@ class DetailModal extends Component {
             <hr/>
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
-            <img className='modal-pic' src={video_thumbnail}/>
+            <img className='modal-pic' src={video_thumbnail} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
             <hr />
             <p>{`${venue}`}</p>
             <br />

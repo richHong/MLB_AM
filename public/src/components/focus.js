@@ -14,9 +14,7 @@ class Focus extends Component {
     return true;
   }
   render () {
-    let {away_team_city, away_team_name, home_team_city, home_team_name, venue, location} = this.props.game;
-    let pic; 
-    this.props.game.video_thumbnails ? pic = this.props.game.video_thumbnail : pic = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
+    const {away_team_city, away_team_name, home_team_city, home_team_name, venue, location, video_thumbnail} = this.props.game;
     return (
       <div id='focus' className='focus-game game'>
         <div id='top' className='top-box box'>
@@ -24,7 +22,7 @@ class Focus extends Component {
           <br/>
           <span>{`${home_team_city} ${home_team_name}`}</span>
         </div>
-        <img className='focus-thumbnail thumbnail' src={pic} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
+        <img className='focus-thumbnail thumbnail' src={video_thumbnail} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
         <div id='bottom' className='bottom-box box'>
           <span>{`${venue}`}</span>
           <br/>

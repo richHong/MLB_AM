@@ -7,11 +7,9 @@ class Game extends Component {
     return true;
   }
   render(){
-    let pic; 
-    this.props.game.video_thumbnails ? pic = this.props.game.video_thumbnail : pic = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
     return(
       <div className='game'>
-        <img className='thumbnail' src={pic} onError={err => this._imgError(this.img)} ref={img => this.img = img} />
+        <img className='thumbnail' src={this.props.game.video_thumbnail} onError={err => this._imgError(this.img)} ref={img => this.img = img} />
       </div>
     );
   }
