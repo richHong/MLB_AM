@@ -63,8 +63,8 @@ table {
   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
   display: -webkit-flex;     /* NEW - Chrome */
   display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  -webkit-justify-content: space-evenly; /* Safari */
-  justify-content:         space-evenly;
+  -webkit-justify-content: flex-start; /* Safari */
+  justify-content:         flex-start;
   -webkit-box-flex-direction: row;
   -moz-box-flex-direction: row;
   -webkit-flex-direction: row;
