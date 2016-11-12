@@ -13,7 +13,7 @@ class DetailModal extends Component {
     return(
       <div>
         <Modal show={this.props.showModal} onHide={e => this._toggle()} bsSize='small' >
-          <Modal.Header bsClass='detail-modal' closeButton>
+          <Modal.Header bsClass='detail-modal'>
             <Modal.Title>{`${away_team_city} ${away_team_name}`} <br/> {`${home_team_city} ${home_team_name}`}</Modal.Title>
             <hr/>
           </Modal.Header>
@@ -34,7 +34,7 @@ class DetailModal extends Component {
               </tr>
               </thead>
             <tbody className='score-board'>
-              {this.props.game.linescore.inning.map((inning,i) => {
+              {this.props.game.linescore ? this.props.game.linescore.inning.map((inning,i) => {
                 return (
                   <tr key={i}>
                     <td className='score-board'>{i+1}</td>
@@ -43,7 +43,7 @@ class DetailModal extends Component {
                     })}
                   </tr>
                 );
-              })}
+              }) : null}
               </tbody>
             </table>
           </Modal.Body>

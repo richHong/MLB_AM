@@ -6,9 +6,6 @@ import $ from 'jquery';
 import { changeIndex, toggleModal } from '../actions/actions';
 
 class List extends Component {
-  constructor(){
-    super();
-  }
   componentWillMount () {
     $(document).on('keydown', event => {
       this._handleKeyDown(event.keyCode);
