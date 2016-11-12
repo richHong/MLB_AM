@@ -56,7 +56,6 @@ table {
   height: 100vh;
   width: 100%;
   display: flex;
-  overflow: hidden;
   font-family: 'Archivo Narrow', sans-serif;
 }
 .list {
@@ -76,11 +75,11 @@ table {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 97%;
   height: 50vh;
   background-color: rgb(32, 32, 32, 0.2);
   overflow-x: auto;
-  padding-right: 10px;
+  margin: 20px;
 }
 .list::-webkit-scrollbar {
  display: none;
