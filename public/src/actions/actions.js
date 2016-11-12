@@ -15,9 +15,37 @@ export function fetchGames(){
     });
   };
 }
+export function updateGames(date){
+  return dispatch => {
+    return fetch('/api/games', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({date})
+    })
+    .then(
+      response => {
+        response.json()
+        .then(json => {
+          dispatch(receiveGames(json.data.games.game));
+        });
+      }, 
+      error => {
+        console.log(error);
+    });
+  };
+}
 export function receiveGames(games){
+  games = games || [];
   return {
     type: 'RECEIVE_GAMES',
     payload: games
+  };
+}
+export function changeDate(date){
+  return {
+    type: 'CHANGE_DATE',
+    payload: date
   };
 }

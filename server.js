@@ -3,6 +3,7 @@ var path = require('path');
 var httpProxy = require('http-proxy');
 var publicPath = path.resolve(__dirname, 'public');
 var fetch = require('isomorphic-fetch');
+var bodyParser = require('body-parser');
 
 var port = process.env.PORT || 3000;
 
@@ -13,6 +14,8 @@ var proxy = httpProxy.createProxyServer({
 var app = express();
 
 app.use(express.static(publicPath));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 var bundle = require('./server/compiler.js');
 bundle();
@@ -25,6 +28,20 @@ app.all('/build/*', function (req, res) {
 
 app.get('/api/games', function(req,res){
   fetch('http://gdx.mlb.com/components/game/mlb/year_2016/month_05/day_20/master_scoreboard.json')
+  .then(response => {
+    response.json()
+    .then(json => {
+      res.send(json);
+    });
+  });
+});
+
+app.post('/api/games', function(req,res){
+  var date = req.body.date;
+  var year = date.slice(0,4);
+  var month = date.slice(5,7);
+  var day = date.slice(8,10);
+  fetch(`http://gdx.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`)
   .then(response => {
     response.json()
     .then(json => {

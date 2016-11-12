@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Game from './game';
 import Focus from './focus';
+import $ from 'jquery';
 
 class List extends Component {
   constructor(){
@@ -10,13 +11,12 @@ class List extends Component {
     };
   }
   componentWillMount () {
-    document.addEventListener('keydown', event => {
-      console.log(event)
+    $(document).on('keydown', event => {
       this._handleKeyDown(event.keyCode);
     });
   }
   componentWillUnmount () {
-    document.removeEventListener('keydown', event => {
+    $(document).off('keydown', event => {
       this._handleKeyDown(event.keyCode);
     });
   }

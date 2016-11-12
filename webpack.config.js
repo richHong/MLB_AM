@@ -1,10 +1,9 @@
-var path = require('path')
-var webpack =require('webpack')
+var path = require('path');
+var webpack =require('webpack');
 
 module.exports = {
 
-  //fastest rebuild and build speed
-  devtool: 'eval', 
+  devtool: 'source-map', 
   entry: [
     //for hot style updates
     'webpack/hot/dev-server',
@@ -25,7 +24,8 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          compact: false
         },
         exclude: '/node_modules'
       },
