@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import List from './list';
 import Logo from './logo';
 import Calendar from './calendar';
-import {fetchGames} from '../actions/actions';
+import { fetchInitGames } from '../actions/actions';
 import DetailModal from './modal';
 
 class App extends Component {
   componentWillMount(){
-    this.props.dispatch(fetchGames());
+    this.props.dispatch(fetchInitGames());
   }
   render() {
     return (

@@ -1,6 +1,6 @@
 import 'isomorphic-fetch';
 
-export function fetchGames(){
+export function fetchInitGames(){
   return dispatch => {
     return fetch('/api/games')
     .then(
@@ -16,25 +16,9 @@ export function fetchGames(){
   };
 }
 export function updateGames(date){
-  return dispatch => {
-    dispatch(resetIndex());
-    return fetch('/api/games', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({date})
-    })
-    .then(
-      response => {
-        response.json()
-        .then(json => {
-          dispatch(receiveGames(json.data.games.game));
-        });
-      }, 
-      error => {
-        console.log(error);
-    });
+  return {
+    type: 'UPDATE_GAMES',
+    payload: date
   };
 }
 export function receiveGames(games){

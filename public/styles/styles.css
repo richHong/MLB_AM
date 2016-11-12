@@ -46,6 +46,7 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  width: 100%;
 }
 #app {
   background: url(http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg) no-repeat center center fixed; 
@@ -134,18 +135,23 @@ table {
   color: white;
   text-align: center;
   font-size: 2em;
+  margin-top: 10vh;
 }
 .detail-modal {
   font-family: 'Archivo Narrow', sans-serif;
   font-size: 1em;
   text-align: center;
 }
-table {
-  width: 100%;
-}
-.score-board {
+.score-board th{
   text-align: center;
   border: 1px solid black;
+}
+.score-board td{
+  text-align: center;
+  border: 1px solid black;
+}
+.modal-pic {
+  transform: scale(1.5);
 }
 @-webkit-keyframes glow 
 {

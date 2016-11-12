@@ -5,6 +5,7 @@ module.exports = {
 
   devtool: 'source-map', 
   entry: [
+    'babel-polyfill',
     //for hot style updates
     'webpack/hot/dev-server',
     //refreshes the browser when it can't hot update

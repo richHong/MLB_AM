@@ -9,7 +9,7 @@ class DetailModal extends Component {
     this.props.dispatch(toggleModal());
   }
   render(){
-    let {away_team_city, away_team_name, home_team_city, home_team_name, venue, location} = this.props.game;
+    let {away_team_city, away_team_name, home_team_city, home_team_name, venue, location, video_thumbnail} = this.props.game;
     return(
       <div>
         <Modal show={this.props.showModal} onHide={e => this._toggle()} bsSize='small' >
@@ -18,34 +18,34 @@ class DetailModal extends Component {
             <hr/>
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
-            <h3>Venue</h3>
+            <img className='modal-pic' src={video_thumbnail}/>
+            <hr />
             <p>{`${venue}`}</p>
-            <br/>
-            <h3>Location</h3>
+            <br />
             <p>{`${location}`}</p>
             <hr />
-            <h3>Score Board</h3>
             <table className='score-board'>
-              <thead className='score-board'>
+              <thead>
                <tr>
-                <th className='score-board'>Inning</th>
-                <th className='score-board'>Away</th> 
-                <th className='score-board'>Home</th>
+                <th>Inning</th>
+                <th>Away</th> 
+                <th>Home</th>
               </tr>
               </thead>
-            <tbody className='score-board'>
+            <tbody>
               {this.props.game.linescore ? this.props.game.linescore.inning.map((inning,i) => {
                 return (
                   <tr key={i}>
-                    <td className='score-board'>{i+1}</td>
+                    <td>{i+1}</td>
                     {_.map(inning, (score, key) => {
-                      return <td className='score-board' key={key}>{score}</td>
+                      return <td key={key}>{score}</td>
                     })}
                   </tr>
                 );
               }) : null}
               </tbody>
             </table>
+            <br />
           </Modal.Body>
         </Modal>
       </div>

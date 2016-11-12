@@ -36,18 +36,29 @@ app.get('/api/games', function(req,res){
   });
 });
 
+const cache = {};
+
 app.post('/api/games', function(req,res){
-  var date = req.body.date;
+  var date = req.body.date.slice(0,10);
   var year = date.slice(0,4);
   var month = date.slice(5,7);
   var day = date.slice(8,10);
-  fetch(`http://gdx.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`)
-  .then(response => {
-    response.json()
-    .then(json => {
-      res.send(json);
+
+  if (cache[date]){
+    console.log(`Found data for ${date} in cache.`);
+    res.send(cache[date]);
+  } else {
+    console.log(`Sending new request for ${date} to MLB API.`);
+    fetch(`http://gdx.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`)
+    .then(response => {
+      response.json()
+      .then(json => {
+        cache[date] = json;
+        res.send(json);
+      });
     });
-  });
+  }
+
 });
 
 proxy.on('error', function(e) {
