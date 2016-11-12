@@ -17,6 +17,7 @@ export function fetchGames(){
 }
 export function updateGames(date){
   return dispatch => {
+    dispatch(resetIndex());
     return fetch('/api/games', {
         method: 'POST',
         headers: {
@@ -47,5 +48,16 @@ export function changeDate(date){
   return {
     type: 'CHANGE_DATE',
     payload: date
+  };
+}
+export function changeIndex(index){
+  return {
+    type: 'CHANGE_INDEX',
+    payload: index
+  };
+}
+export function resetIndex(){
+  return {
+    type: 'RESET_INDEX'
   };
 }
