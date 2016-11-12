@@ -5,40 +5,41 @@ import { toggleModal } from '../actions/actions';
 import _ from 'underscore';
 
 class DetailModal extends Component {
-  close(){
+  _toggle(){
     this.props.dispatch(toggleModal());
   }
   render(){
     let {away_team_city, away_team_name, home_team_city, home_team_name, venue, location} = this.props.game;
     return(
-      <div className='detail-modal'>
-        <Modal show={this.props.showModal} onHide={e => this.close()} bsSize='small'>
-          <Modal.Header closeButton>
+      <div>
+        <Modal show={this.props.showModal} onHide={e => this._toggle()} bsSize='small' >
+          <Modal.Header bsClass='detail-modal' closeButton>
             <Modal.Title>{`${away_team_city} ${away_team_name}`} <br/> {`${home_team_city} ${home_team_name}`}</Modal.Title>
+            <hr/>
           </Modal.Header>
-          <Modal.Body>
-            <h3>Venue:</h3>
+          <Modal.Body bsClass='detail-modal'>
+            <h3>Venue</h3>
             <p>{`${venue}`}</p>
             <br/>
-            <h3>Location:</h3>
+            <h3>Location</h3>
             <p>{`${location}`}</p>
             <hr />
-            <h3>Score Board:</h3>
-            <table>
-              <thead>
+            <h3>Score Board</h3>
+            <table className='score-board'>
+              <thead className='score-board'>
                <tr>
-                <th>INNING_</th>
-                <th>AWAY_</th> 
-                <th>_HOME</th>
+                <th className='score-board'>Inning</th>
+                <th className='score-board'>Away</th> 
+                <th className='score-board'>Home</th>
               </tr>
               </thead>
-            <tbody>
+            <tbody className='score-board'>
               {this.props.game.linescore.inning.map((inning,i) => {
                 return (
                   <tr key={i}>
-                    <td>___{i+1}____</td>
+                    <td className='score-board'>{i+1}</td>
                     {_.map(inning, (score, key) => {
-                      return <td key={key}>___{score}___</td>
+                      return <td className='score-board' key={key}>{score}</td>
                     })}
                   </tr>
                 );
