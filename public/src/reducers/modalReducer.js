@@ -1,9 +1,7 @@
 export default function modalReducer (state = false, action){
   switch (action.type) {
-    case 'OPEN_MODAL':
-      return true;
-    case 'CLOSE_MODAL':
-      return false;
+    case 'TOGGLE_MODAL':
+      return !state;
     default:
       return state;
   };

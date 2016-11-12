@@ -61,13 +61,8 @@ export function resetIndex(){
     type: 'RESET_INDEX'
   };
 }
-export function openModal(){
+export function toggleModal(){
   return {
-    type: 'OPEN_MODAL'
-  };
-}
-export function closeModal(){
-  return {
-    type: 'CLOSE_MODAL'
+    type: 'TOGGLE_MODAL'
   };
 }

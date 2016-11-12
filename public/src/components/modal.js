@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { closeModal } from '../actions/actions';
+import { toggleModal } from '../actions/actions';
 import _ from 'underscore';
 
 class DetailModal extends Component {
   close(){
-    this.props.dispatch(closeModal());
+    this.props.dispatch(toggleModal());
   }
   render(){
     let {away_team_city, away_team_name, home_team_city, home_team_name, venue, location} = this.props.game;
