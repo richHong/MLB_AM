@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+const replaceImg = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
 
 class Focus extends Component {
   componentDidMount(){
@@ -10,7 +11,7 @@ class Focus extends Component {
   }
   _imgError(image) {
     image.onerror = '';
-    image.src = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
+    image.src = replaceImg;
     return true;
   }
   render () {
@@ -22,7 +23,7 @@ class Focus extends Component {
           <br/>
           <span>{`${home_team_city} ${home_team_name}`}</span>
         </div>
-        <img className='focus-thumbnail thumbnail' src={video_thumbnail} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
+        <img className='focus-thumbnail thumbnail' src={video_thumbnail || replaceImg} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
         <div id='bottom' className='bottom-box box'>
           <span>{`${venue}`}</span>
           <br/>

@@ -45,10 +45,8 @@ app.post('/api/games', function(req,res){
   var day = date.slice(8,10);
 
   if (cache[date]){
-    console.log(`Found data for ${date} in cache.`);
     res.send(cache[date]);
   } else {
-    console.log(`Sending new request for ${date} to MLB API.`);
     fetch(`http://gdx.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`)
     .then(response => {
       response.json()
@@ -58,7 +56,6 @@ app.post('/api/games', function(req,res){
       });
     });
   }
-
 });
 
 proxy.on('error', function(e) {

@@ -3,6 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { toggleModal } from '../actions/actions';
 import _ from 'underscore';
+const replaceImg = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
 
 class DetailModal extends Component {
   _toggle(){
@@ -10,7 +11,7 @@ class DetailModal extends Component {
   }
   _imgError(image) {
     image.onerror = '';
-    image.src = 'http://vignette3.wikia.nocookie.net/logopedia/images/e/ec/MLB.png';
+    image.src = replaceImg;
     return true;
   }
   render(){
@@ -23,7 +24,7 @@ class DetailModal extends Component {
             <hr/>
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
-            <img className='modal-pic' src={video_thumbnail} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
+            <img className='modal-pic' src={video_thumbnail || replaceImg} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
             <hr />
             <p>{`${venue}`}</p>
             <br />
