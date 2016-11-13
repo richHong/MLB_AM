@@ -157,6 +157,8 @@ table {
 .modal-pic {
   transform: scale(1.5);
   border-radius: 5%;
+  height: 70px;
+  width: 124px;
 }
 .spinner-container {
   position: fixed;
