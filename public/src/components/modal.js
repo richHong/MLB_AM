@@ -15,7 +15,7 @@ class DetailModal extends Component {
     return true;
   }
   render(){
-    const {away_team_city, away_team_name, home_team_city, home_team_name, venue, location, video_thumbnail} = this.props.game;
+    const {away_team_city, away_team_name, home_team_city, home_team_name, venue, location, video_thumbnail, time_date, time_zone} = this.props.game;
     return(
       <div>
         <Modal show={this.props.showModal} onHide={e => this._toggle()} bsSize='small' >
@@ -26,9 +26,11 @@ class DetailModal extends Component {
           <Modal.Body bsClass='detail-modal'>
             <img className='modal-pic' src={video_thumbnail || replaceImg} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
             <hr />
-            <p>{`${venue}`}</p>
+            <p>{`${time_date.slice(5,10)}/${time_date.slice(0,4)} ${time_date.slice(11)} ${time_zone}`}</p>
             <br />
-            <p>{`${location}`}</p>
+            <p>{venue}</p>
+            <br />
+            <p>{location}</p>
             <hr />
             <table className='score-board'>
               <thead>

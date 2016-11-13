@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { changeDate, updateGames } from '../actions/actions';
 import $ from 'jquery';
 import _ from 'underscore';
+import moment from 'moment';
 
 class Calendar extends Component {
   constructor(){
@@ -20,9 +21,7 @@ class Calendar extends Component {
     });
   }
   _updateDate(days){
-    const date = new Date(this.props.date);
-    date.setDate(date.getDate() + days);
-    return date;
+    return moment(this.props.date).add(days,'days');
   }
   _handleKeyDown(code){
     if (code === 38){
@@ -34,13 +33,10 @@ class Calendar extends Component {
     }
   }
   _formatDate(date){
-    const local = new Date(date);
-    local.setMinutes(date.getMinutes() - date.getTimezoneOffset());
-    const newDate = local.toJSON().slice(0, 10);
-    return `${newDate.slice(5,7)} / ${newDate.slice(8,10)} / ${newDate.slice(0,4)}`;
+    return moment(date).format('L');
   }
   _updateGameDay(){
-    this.props.dispatch(updateGames(this.props.date));
+    this.props.dispatch(updateGames(this._formatDate(this.props.date)));
   }
   render(){
     return(

@@ -39,10 +39,10 @@ app.get('/api/games', function(req,res){
 const cache = {};
 
 app.post('/api/games', function(req,res){
-  var date = req.body.date.slice(0,10);
-  var year = date.slice(0,4);
-  var month = date.slice(5,7);
-  var day = date.slice(8,10);
+  var date = req.body.date;
+  var year = date.slice(6,10);
+  var day = date.slice(3,5);
+  var month = date.slice(0,2);
 
   if (cache[date]){
     res.send(cache[date]);
