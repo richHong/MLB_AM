@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import scrollIntoView from 'scroll-into-view';
 const replaceImg = '../../assets/replace.png';
 
 class Focus extends Component {
   componentDidMount(){
     $('#top').hide().slideToggle('fast');
     $('#bottom').hide().slideToggle('fast');
-    const focus = document.getElementById('focus');
-    focus.scrollIntoView({block:'end', behavior:'smooth'});
+    scrollIntoView(document.getElementById('focus'));
   }
   _imgError(image) {
     image.onerror = '';

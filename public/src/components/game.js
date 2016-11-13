@@ -4,7 +4,7 @@ const replaceImg = '../../assets/replace.png';
 class Game extends Component {
   _imgError(image) {
     image.onerror = '';
-    image.src = replaceImg
+    image.src = replaceImg;
     return true;
   }
   render(){

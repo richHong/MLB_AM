@@ -5,7 +5,6 @@ var buildPath = path.resolve(__dirname, 'public', 'build');
 
 var config = {
 
-  // We change to normal source mapping
   devtool: 'source-map',
   entry: ['babel-polyfill','./index.js'],
   output: {
@@ -31,7 +30,6 @@ var config = {
         loader: 'babel?presets[]=react,presets[]=es2015',
         exclude: '/node_modules'
       },
-      //This converts our .css into JS
       { test: /\.s?css$/, loaders: ['style', 'css', 'sass?outputStyle=expanded'] },
     ]
   },

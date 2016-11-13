@@ -43,7 +43,7 @@ class List extends Component {
   }
   render(){
     return(
-      <div className='list'>
+      <div className='list' id='list'>
         {this.props.games.map((game,i) => {
           return this._renderGame(game,i)
         })}

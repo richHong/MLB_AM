@@ -48,6 +48,9 @@ table {
   border-spacing: 0;
   width: 100%;
 }
+
+/**********************************/
+
 #app {
   background: url(http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -85,11 +88,6 @@ table {
 .list::-webkit-scrollbar {
  display: none;
 }
-.focus-thumbnail {
-  border: 2px solid red;
-  -webkit-animation: glow 3s ease-in-out 1;
-  animation: glow 3s ease-in-out 1;
-}
 .game {
   margin-right: 20px;
   margin-left: 20px;
@@ -99,6 +97,17 @@ table {
   transform: scale(1.25);
   white-space: nowrap;
   opacity: 1;
+}
+.focus-thumbnail {
+  border: 2px solid red;
+  -webkit-animation: glow 3s ease-in-out 1;
+  animation: glow 3s ease-in-out 1;
+}
+.thumbnail {
+  height: 70px;
+  width: 124px;
+  margin-bottom: 0 !important;
+  padding: 0;
 }
 .box {
   line-height: 120%;
@@ -111,25 +120,20 @@ table {
 .bottom-box {
   font-size: 0.65em;
 }
+.logo {
+  height: 40vh;
+}
 .container {
+  -webkit-justify-content: center;
   justify-content: center;
   display: flex;
   width: 100vw;
-}
-.logo {
-  height: 40vh;
 }
 .calendar-container {
   position: fixed;
   top: 80vh;
   color: white;
   font-size: 2em;
-}
-.thumbnail {
-  height: 70px;
-  width: 124px;
-  margin-bottom: 0 !important;
-  padding: 0;
 }
 .no-games {
   color: white;
@@ -152,10 +156,11 @@ table {
 }
 .modal-pic {
   transform: scale(1.5);
+  border-radius: 5%;
 }
 .spinner-container {
   position: fixed;
-  top: 86vh;
+  top: 86.5vh;
 }
 .spinner {
   height: 10vh;

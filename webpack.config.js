@@ -6,17 +6,14 @@ module.exports = {
   devtool: 'source-map', 
   entry: [
     'babel-polyfill',
-    //for hot style updates
     'webpack/hot/dev-server',
-    //refreshes the browser when it can't hot update
     'webpack-dev-server/client?http://localhost:8080', 
-    //our entry point
     './index.js' 
   ],
   output: {
     path: path.join(__dirname, 'public', 'build'),
     filename: 'bundle.js',
-    publicPath: '/build/' //the server will listen in on this path and then proxy Webpack
+    publicPath: '/build/' 
   },
 
   module: {
@@ -30,15 +27,12 @@ module.exports = {
         },
         exclude: '/node_modules'
       },
-      //This converts our .css into JS
       {
         test: /\.css$/,
         loader: 'css-loader'
       }
     ]
   },
-  //Since we're running Webpack from our server, need to manually add the
-  //Hot Replacement plugin
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ]
