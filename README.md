@@ -16,11 +16,12 @@
 
   4. Controls:
 
-    - Left Arrow Key:  Move Left
-    - Right Arrow Key: Move Right
-    - Up Arrow Key:    Increase Date
-    - Down Arrow Key:  Decrease Date
-    - Enter Key:       Toggle Line Score Overlay
+| Left Arrow  | Move Left      |
+|-------------|----------------|
+| Right Arrow | Move Right     |
+| Up Arrow    | Increase Date  |
+| Down Arrow  | Decrease Date  |
+| Enter       | Toggle Overlay |
 
 
 ###To Run Unit Tests
@@ -28,16 +29,17 @@
   `npm test`
 
 ###Technical Challenges
-  1. **Focus**
+  1. **Focused Element**
   2. **Scroll To View** 
   3. **Date Object**
+  4. **Image Errors**
 
 ###Technical Considerations
   1. **Debouncing**
   2. **Cache**
   3. **Concurrency**
   4. **Responsiveness**
-  5. **Image Errors/Bugs**
+  5. **Loading Spinner**
 
 ###Tech Stack
 
