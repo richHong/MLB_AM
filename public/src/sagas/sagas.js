@@ -7,7 +7,7 @@ import { resetIndex,
         spinnerInactive } from '../actions/actions';
 import { UPDATE_GAMES }   from '../actions/types';
 
-function* updateGames(action) {
+export function* updateGames(action) {
   try {
     yield put(spinnerActive());
     const games = yield call(API.fetchGames, action.payload);
