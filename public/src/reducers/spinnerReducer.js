@@ -1,4 +1,4 @@
-export default function spinnerReducer (state = false, action){
+export default function spinnerReducer (state = false, action) {
   switch (action.type){
     case 'SPINNER_ACTIVE':
       return true;

@@ -1,20 +1,24 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Game from './game';
-import Focus from './focus';
-import $ from 'jquery';
-import { changeIndex, toggleModal } from '../actions/actions';
+import React, 
+       { Component }         from 'react';
+import { connect }           from 'react-redux';
+import { bindActionCreators} from 'redux';
+import $                     from 'jquery';
+import Game                  from './game';
+import Focus                 from './focus';
+import { changeIndex, 
+         toggleModal }       from '../actions/actions';
 
 class List extends Component {
-  componentWillMount () {
+  componentWillMount() {
     $(document).on('keydown', event => {
-      this._handleKeyDown(event.keyCode);
+      const key = event.keyCode;
+      if (key === 13 || key === 37 || key === 39){
+        this._handleKeyDown(key);
+      }
     });
   }
-  componentWillUnmount () {
-    $(document).off('keydown', event => {
-      this._handleKeyDown(event.keyCode);
-    });
+  componentWillUnmount() {
+    $(document).off('keydown');
   }
   _handleKeyDown(code) {
     let newIndex;
@@ -23,26 +27,22 @@ class List extends Component {
       if (newIndex > this.props.games.length - 1) {
         newIndex = this.props.games.length - 1;
       }
-      this.props.dispatch(changeIndex(newIndex));
+      this.props.changeIndex(newIndex);
     } else if (code === 37) {
       newIndex = this.props.index - 1;
       if (newIndex < 0) {
         newIndex = 0;
       }
-      this.props.dispatch(changeIndex(newIndex));
+      this.props.changeIndex(newIndex);
     } else if (code === 13) {
-      this.props.dispatch(toggleModal());
+      this.props.toggleModal();
     }
   }
-  _renderGame(game,index){
-    if (index === this.props.index) {
-      return (<Focus game={game} key={index} />);
-    } else {
-      return (<Game game={game} key={index} />);
-    }
+  _renderGame(game,index) {
+    return index === this.props.index ? <Focus game={game} key={index} /> : <Game game={game} key={index} />;
   }
-  render(){
-    return(
+  render() {
+    return (
       <div className='list' id='list'>
         {this.props.games.map((game,i) => {
           return this._renderGame(game,i)
@@ -51,9 +51,7 @@ class List extends Component {
     );
   }
 }
-function mapStateToProps(state){
-  return {
-    index: state.index
-  }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({changeIndex, toggleModal}, dispatch)
 }
-export default connect(mapStateToProps)(List);
+export default connect(null, mapDispatchToProps)(List);

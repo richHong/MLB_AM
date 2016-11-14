@@ -1,4 +1,4 @@
-export default function indexReducer (state = 0, action){
+export default function indexReducer (state = 0, action) {
   switch (action.type) {
     case 'CHANGE_INDEX':
       return action.payload;
@@ -6,5 +6,5 @@ export default function indexReducer (state = 0, action){
       return 0;
     default:
       return state;
-  };
-};
+  }
+}

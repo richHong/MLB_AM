@@ -1,33 +1,16 @@
-import { takeEvery, takeLatest } from 'redux-saga';
-import { call, put }             from 'redux-saga/effects';
-import { resetIndex, receiveGames, spinnerActive, spinnerInactive, changeDate } from '../actions/actions';
-import 'isomorphic-fetch';
+import { takeLatest }     from 'redux-saga';
+import { call, put }      from 'redux-saga/effects';
+import * as API           from '../helpers/api';
+import { resetIndex, 
+        receiveGames, 
+        spinnerActive, 
+        spinnerInactive } from '../actions/actions';
+import { UPDATE_GAMES }   from '../actions/types';
 
-function fetchGames(date) {
-  return new Promise((resolve, reject) => {
-    fetch('/api/games', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({date})
-    })
-    .then(response => {
-        if(!response.ok){
-          return reject(new Error('Failed response from server.'));
-        }
-        response.json()
-        .then(json => {
-          return resolve(json.data.games.game);
-        });
-    });
-  });
-}
 function* updateGames(action) {
   try {
     yield put(spinnerActive());
-    yield put(changeDate(action.payload));
-    const games = yield call(fetchGames, action.payload);
+    const games = yield call(API.fetchGames, action.payload);
     yield put(resetIndex());
     yield put(receiveGames(games));
   } catch (e) {
@@ -37,5 +20,5 @@ function* updateGames(action) {
   }
 }
 export function* gameSaga() {
-  yield* takeLatest('UPDATE_GAMES', updateGames);
+  yield* takeLatest(UPDATE_GAMES, updateGames);
 }

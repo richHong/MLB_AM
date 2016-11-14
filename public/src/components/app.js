@@ -1,34 +1,36 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import List from './list';
-import Logo from './logo';
-import Spinner from './spinner';
-import Calendar from './calendar';
-import { fetchInitGames } from '../actions/actions';
-import DetailModal from './modal';
+import React, 
+       { Component }         from 'react';
+import { bindActionCreators} from 'redux';
+import { connect }           from 'react-redux';
+import { fetchInitGames }    from '../thunks/thunks';
+import List                  from './list';
+import Logo                  from './logo';
+import NoGames               from './noGames';
+import Spinner               from './spinner';
+import Calendar              from './calendar';
+import DetailModal           from './modal';
 
 class App extends Component {
-  componentWillMount(){
-    this.props.dispatch(fetchInitGames());
+  componentWillMount() {
+    this.props.fetchInitGames();
   }
   render() {
+    const {games, index, showSpinner, date, showModal} = this.props;
     return (
       <div>
-        {this.props.games.length ? <DetailModal game={this.props.games[this.props.index]}/> : null}
         <Logo />
-        {this.props.games.length ? null : <div className='no-games'>No Games Available</div>}
-        <List games={this.props.games} />
-        <Calendar />
-        {this.props.showSpinner ? <Spinner /> : null}
+        {games.length ? <DetailModal game={games[index]} showModal={showModal}/> : <NoGames />}
+        {showSpinner ? <Spinner /> : null}
+        <List games={games} index={index}/>
+        <Calendar date={date}/>
       </div>
     )
   }
 }
-function mapStateToProps(state){
-  return {
-    games: state.games,
-    index: state.index,
-    showSpinner: state.showSpinner
-  }
+function mapStateToProps({games, index, showSpinner, date, showModal}) {
+  return {games, index, showSpinner, date, showModal}
 }
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({fetchInitGames}, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

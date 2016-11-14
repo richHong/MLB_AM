@@ -1,9 +1,9 @@
-var express = require('express');
-var path = require('path');
-var httpProxy = require('http-proxy');
-var publicPath = path.resolve(__dirname, 'public');
-var fetch = require('isomorphic-fetch');
+var express    = require('express');
+var path       = require('path');
+var httpProxy  = require('http-proxy');
+var fetch      = require('isomorphic-fetch');
 var bodyParser = require('body-parser');
+var publicPath = path.resolve(__dirname, 'public');
 
 var port = process.env.PORT || 3000;
 

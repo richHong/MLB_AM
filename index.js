@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, 
+       { Component }        from 'react';
 import { render }           from 'react-dom';
 import { Provider }         from 'react-redux';
 import thunk                from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, 
+         applyMiddleware }  from 'redux';
 
 import rootReducer from './public/src/reducers/root';
 

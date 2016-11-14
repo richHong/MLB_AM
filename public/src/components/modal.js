@@ -1,36 +1,45 @@
-import React, { Component } from 'react';
-import { Modal, Button } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { toggleModal } from '../actions/actions';
-import _ from 'underscore';
-const replaceImg = '../../assets/replace.png';
+import React, 
+       { Component }         from 'react';
+import { Modal, Button }     from 'react-bootstrap';
+import { toggleModal }       from '../actions/actions';
+import { bindActionCreators} from 'redux';
+import { connect }           from 'react-redux';
+import _                     from 'underscore';
+import { imgError, 
+         replaceImg }        from '../helpers/imgError';
 
 class DetailModal extends Component {
-  _toggle(){
-    this.props.dispatch(toggleModal());
-  }
-  _imgError(image) {
-    image.onerror = '';
-    image.src = replaceImg;
-    return true;
-  }
-  render(){
-    const {away_team_city, away_team_name, home_team_city, home_team_name, venue, location, video_thumbnail, time_date, time_zone} = this.props.game;
+  render() {
+    const { away_team_city, 
+            away_team_name, 
+            home_team_city, 
+            home_team_name, 
+            venue, location, 
+            video_thumbnail,
+            linescore, 
+            time_date, 
+            time_zone} = this.props.game;
+    const {toggleModal, showModal} = this.props;
     return(
       <div>
-        <Modal show={this.props.showModal} onHide={e => this._toggle()} bsSize='small' >
+        <Modal show={showModal} onHide={e => toggleModal()} bsSize='small' >
           <Modal.Header bsClass='detail-modal'>
-            <Modal.Title>{`${away_team_city} ${away_team_name}`} <br/> {`${home_team_city} ${home_team_name}`}</Modal.Title>
+            <Modal.Title>
+              {`${away_team_city} ${away_team_name}`} 
+              <br/> 
+              {`${home_team_city} ${home_team_name}`}
+            </Modal.Title>
             <hr/>
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
-            <img className='modal-pic' src={video_thumbnail || replaceImg} onError={err => this._imgError(this.img)} ref={img => this.img = img}/>
+            <img className='modal-pic' 
+                 src={video_thumbnail || replaceImg} 
+                 onError={err => imgError(this.img)} 
+                 ref={img => this.img = img}/>
             <hr />
-            <p>{`${time_date.slice(5,10)}/${time_date.slice(0,4)} ${time_date.slice(11)} ${time_zone}`}</p>
-            <br />
-            <p>{venue}</p>
-            <br />
-            <p>{location}</p>
+            <div>{venue}</div>
+            <div>{location}</div>
+            <div>{`${time_date.slice(5,10)}/${time_date.slice(0,4)} ${time_date.slice(11)} ${time_zone}`}</div>
             <hr />
             <table className='score-board'>
               <thead>
@@ -41,7 +50,7 @@ class DetailModal extends Component {
               </tr>
               </thead>
             <tbody>
-              {this.props.game.linescore ? this.props.game.linescore.inning.map((inning,i) => {
+              {linescore ? linescore.inning.map((inning,i) => {
                 return (
                   <tr key={i}>
                     <td>{i+1}</td>
@@ -60,9 +69,7 @@ class DetailModal extends Component {
     );
   }
 }
-function mapStateToProps(state){
-  return {
-    showModal: state.showModal
-  }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({toggleModal}, dispatch)
 }
-export default connect(mapStateToProps)(DetailModal);
+export default connect(null, mapDispatchToProps)(DetailModal);

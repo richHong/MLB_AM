@@ -1,5 +1,5 @@
 {
-  "name": "reactboilerplate",
+  "name": "MLBAM-Exercise",
   "engines": {
     "node": "6.4.0",
     "npm": "3.10.3"
@@ -41,10 +41,13 @@
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
+    "expect": "^1.20.2",
     "express": "^4.13.3",
     "http-proxy": "^1.13.2",
     "mocha": "~2.4.5",
+    "nock": "^9.0.2",
     "react-hot-loader": "^1.3.0",
+    "redux-mock-store": "^1.2.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.9.1"

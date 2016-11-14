@@ -1,62 +1,53 @@
-import 'isomorphic-fetch';
+import { UPDATE_GAMES,
+         RECEIVE_GAMES,
+         CHANGE_DATE,
+         CHANGE_INDEX,
+         RESET_INDEX,
+         TOGGLE_MODAL,
+         SPINNER_ACTIVE,
+         SPINNER_INACTIVE } from './types'; 
 
-export function fetchInitGames(){
-  return dispatch => {
-    return fetch('/api/games')
-    .then(
-      response => {
-        response.json()
-        .then(json => {
-          dispatch(receiveGames(json.data.games.game));
-        });
-      }, 
-      error => {
-        console.log(error);
-    });
-  };
-}
-export function updateGames(date){
+export function updateGames(date) {
   return {
-    type: 'UPDATE_GAMES',
+    type: UPDATE_GAMES,
     payload: date
   };
 }
-export function receiveGames(games){
-  games = games || [];
+export function receiveGames(games) {
   return {
-    type: 'RECEIVE_GAMES',
-    payload: games
+    type: RECEIVE_GAMES,
+    payload: games || []
   };
 }
-export function changeDate(date){
+export function changeDate(date) {
   return {
-    type: 'CHANGE_DATE',
+    type: CHANGE_DATE,
     payload: date
   };
 }
-export function changeIndex(index){
+export function changeIndex(index) {
   return {
-    type: 'CHANGE_INDEX',
+    type: CHANGE_INDEX,
     payload: index
   };
 }
-export function resetIndex(){
+export function resetIndex() {
   return {
-    type: 'RESET_INDEX'
+    type: RESET_INDEX
   };
 }
-export function toggleModal(){
+export function toggleModal() {
   return {
-    type: 'TOGGLE_MODAL'
+    type: TOGGLE_MODAL
   };
 }
 export function spinnerActive() {
   return {
-    type: 'SPINNER_ACTIVE'
+    type: SPINNER_ACTIVE
   };
 }
 export function spinnerInactive() {
   return {
-    type: 'SPINNER_INACTIVE'
+    type: SPINNER_INACTIVE
   };
 }

@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-const replaceImg = '../../assets/replace.png';
+import React, 
+       { Component }  from 'react';
+import { imgError, 
+         replaceImg } from '../helpers/imgError';
 
-class Game extends Component {
-  _imgError(image) {
-    image.onerror = '';
-    image.src = replaceImg;
-    return true;
-  }
-  render(){
-    return(
+export default class Game extends Component {
+  render() {
+    const {video_thumbnail} = this.props.game;
+    return (
       <div className='game'>
-        <img className='thumbnail' src={this.props.game.video_thumbnail || replaceImg} onError={err => this._imgError(this.img)} ref={img => this.img = img} />
+        <img className='thumbnail' 
+             src={video_thumbnail || replaceImg} 
+             onError={err => imgError(this.img)} 
+             ref={img => this.img = img} />
       </div>
     );
   }
 }
-export default Game;
