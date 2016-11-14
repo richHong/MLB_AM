@@ -14,13 +14,13 @@
 
     `http://localhost:3000`
 
-  4.Controls:
+  4. Controls:
 
-    * Left Arrow Key:  Move Left
-    * Right Arrow Key: Move Right
-    * Up Arrow Key:    Increase Date
-    * Down Arrow Key:  Decrease Date
-    * Enter Key:       Toggle Line Score Overlay
+    - Left Arrow Key:  Move Left
+    - Right Arrow Key: Move Right
+    - Up Arrow Key:    Increase Date
+    - Down Arrow Key:  Decrease Date
+    - Enter Key:       Toggle Line Score Overlay
 
 
 ###To Run Unit Tests
@@ -37,6 +37,7 @@
   2. **Cache**
   3. **Concurrency**
   4. **Responsiveness**
+  5. **Image Errors/Bugs**
 
 ###Tech Stack
 
