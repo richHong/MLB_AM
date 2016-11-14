@@ -16,8 +16,9 @@
 
   4. Controls:
 
-| Left Arrow  | Move Left      |
+| Key         | Action         |
 |-------------|----------------|
+| Left Arrow  | Move Left      |   
 | Right Arrow | Move Right     |
 | Up Arrow    | Increase Date  |
 | Down Arrow  | Decrease Date  |
