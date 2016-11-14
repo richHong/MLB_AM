@@ -26,6 +26,7 @@ app.all('/build/*', function (req, res) {
   });
 });
 
+// Endpoint used to get initial games with date 5/20/16
 app.get('/api/games', function(req,res){
   fetch('http://gdx.mlb.com/components/game/mlb/year_2016/month_05/day_20/master_scoreboard.json')
   .then(response => {
@@ -36,8 +37,10 @@ app.get('/api/games', function(req,res){
   });
 });
 
-const cache = {};
+//Object literal used to cache previous requests to MLB API
+const cache = {}; 
 
+//Endpoint used to return either cached data or fetch data from MLB API, save to cache, and then return data
 app.post('/api/games', function(req,res){
   var date = req.body.date;
   var year = date.slice(6,10);

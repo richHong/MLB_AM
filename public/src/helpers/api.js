@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
+// Promise used to fetch new games given a date from the server
 export function fetchGames(date) {
   return new Promise((resolve, reject) => {
     fetch('/api/games', {

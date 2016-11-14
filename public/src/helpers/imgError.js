@@ -1,6 +1,7 @@
-  export const replaceImg = '../../assets/replace.png';
+export const replaceImg = '../../assets/replace.png';
 
-  export function imgError(image) {
-    image.onerror = '';
-    image.src = replaceImg;
-  }
+// Function used to replace images on error
+export function imgError(image) {
+  image.onerror = '';
+  image.src = replaceImg;
+}

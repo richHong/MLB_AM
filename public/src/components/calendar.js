@@ -11,7 +11,7 @@ import _                     from 'underscore';
 class Calendar extends Component {
   constructor() {
     super();
-    this._updateGameDay = _.debounce(this._updateGameDay, 90);
+    this._updateGameDay = _.debounce(this._updateGameDay, 90); // I found 90ms to work the best in terms of responsiveness and limiting requests
     this._updateDate    = _.debounce(this._updateDate, 20);
   }
   componentWillMount() {
@@ -29,16 +29,16 @@ class Calendar extends Component {
     return moment(this.props.date).add(days,'days');
   }
   _handleKeyDown(code) {
-    if (code === 38){
+    if (code === 38){ // Up Arrow Key
       this._updateDate(1);
       this._updateGameDay();
-    } else if (code === 40){
+    } else if (code === 40){ // Down Arrow Key
       this._updateDate(-1);
       this._updateGameDay();
     }
   }
   _formatDate(date) {
-    return moment(date).format('L');
+    return moment(date).format('L'); //Moment used to format date object to MM/DD/YYYY
   }
   _updateDate(diff) {
     this.props.changeDate(this._calcDate(diff));

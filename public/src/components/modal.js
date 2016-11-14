@@ -32,6 +32,7 @@ class DetailModal extends Component {
             <hr/>
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
+          
             <img className='modal-pic' 
                  src={video_thumbnail || replaceImg} 
                  onError={err => imgError(this.img)} 
@@ -41,6 +42,7 @@ class DetailModal extends Component {
             <div>{location}</div>
             <div>{`${time_date.slice(5,10)}/${time_date.slice(0,4)} ${time_date.slice(11)} ${time_zone}`}</div>
             <hr />
+
             <table className='score-board'>
               <thead>
                <tr>
@@ -62,6 +64,7 @@ class DetailModal extends Component {
               }) : null}
               </tbody>
             </table>
+
             <br />
           </Modal.Body>
         </Modal>

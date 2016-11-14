@@ -54,6 +54,12 @@
 
   5. **Loading Spinner** - I wanted to have some user feedback when fetching data for games and the loading spinner really helped visualize that processes are working. 
 
+###Future Features
+
+  1. **Error Handling** - Currently if their is an error from the server when fetching games, the user does not know. I would implement an action to handle that a possibly prompt the user with the error and what to do.
+
+  2. **Touch Screen Control** - I think it would be nice to be able to have controls other than keyboard input.
+
 ###Tech Stack
 
   - React

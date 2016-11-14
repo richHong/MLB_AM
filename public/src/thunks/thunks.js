@@ -15,6 +15,7 @@ export function fetchInitGames() {
     .catch(err => console.log(err));
   };
 }
+
 //Function used for testing - same as above function other than URL in fetch
 export function testFetchInitGames() {
   return dispatch => {
