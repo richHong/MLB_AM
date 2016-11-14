@@ -46,7 +46,7 @@
 ###Technical Considerations
   1. **Debouncing** - Since the user is able to change the date, we are only concerned with the date the user stops on. By using debouncing we can prevent unnecessary http requests. I used the Underscore library to implement this.
 
-  2. **Cache** - Since the user is able to go back and forth between dates. It makes sense to have a cache to return previous http requests, so we don't send multiple requests for the same data. I set a rudimentary object that acted as a cache on the server.
+  2. **Cache** - Since the user is able to go back and forth between dates. It makes sense to have a cache to return previous http requests, so we don't send multiple requests for the same data. I set a object literal that acted as a rudimentary cache on the server.
 
   3. **Concurrency** - The user can possibly trigger multiple asynchronous https requests for different dates. However, we are only concerned about the latest date, so it makes sense to cancel any pending requests. I used Redux Sagas to handle concurrency.
 
