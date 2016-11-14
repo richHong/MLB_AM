@@ -4,15 +4,15 @@
   
   1. Install dependencies:
 
-    ```npm install```
+    `npm install`
 
   2. Start server:
 
-    ```npm start```
+    `npm start`
 
   3. Go to:
 
-    ```http://localhost:3000```
+    `http://localhost:3000`
 
   4.Controls:
 
@@ -25,7 +25,7 @@
 
 ###To Run Unit Tests
 
-  ```npm test```
+  `npm test`
 
 ###Technical Challenges
   1. **Focus**
