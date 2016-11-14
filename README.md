@@ -1,5 +1,7 @@
 # MLB AM Take-Home Exercise
 
+![Preview](preview.png "Preview")
+
 ###Getting Started
   
   1. Install dependencies:
