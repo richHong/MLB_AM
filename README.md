@@ -56,7 +56,7 @@
 
 ###Future Features
 
-  1. **Error Handling** - Currently if their is an error from the server when fetching games, the user does not know. I would implement an action to handle that a possibly prompt the user with the error and what to do.
+  1. **Error Handling** - Currently if their is an error from the server when fetching games, the user does not know. I would implement an action to handle that and prompt the user with the error and what to do.
 
   2. **Touch Screen Control** - I think it would be nice to be able to have controls other than keyboard input.
 
