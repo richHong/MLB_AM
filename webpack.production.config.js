@@ -28,7 +28,8 @@ var config = {
         exclude: '/node_modules'
       },
       { 
-        test: /\.s?css$/, loaders: ['style', 'css', 'sass?outputStyle=expanded'] 
+        test: /\.css$/,
+        loader: 'css-loader' 
       },
       {
         test: /\.scss$/,
