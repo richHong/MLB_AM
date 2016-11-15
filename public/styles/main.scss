@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+@mixin flex-direction($direction) {
+-webkit-box-flex-direction: $direction;
+   -moz-box-flex-direction: $direction;
+    -webkit-flex-direction: $direction;
+            flex-direction: $direction;
+}
+@mixin display() {
+  display: -webkit-box;     
+  display: -moz-box;     
+  display: -webkit-flex;     
+  display: flex;  
+}
+@mixin justify-content($flex){
+  -webkit-justify-content: $flex;
+          justify-content: $flex;
+}
+@mixin align-items($flex){
+  -webkit-align-items: $flex;
+          align-items: $flex;
+}
+@mixin background-size($type){
+-webkit-background-size: $type;
+   -moz-background-size: $type;
+     -o-background-size: $type;
+        background-size: $type;
+}
+$primary-font: 'Archivo Narrow', sans-serif;
+@-webkit-keyframes glow {
+  50% { box-shadow: 0 0 20px red; }
+}
+@keyframes glow 
+
+#app {
+  background: url(http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg) no-repeat center center fixed; 
+  @include background-size(cover);
+  font-family: $primary-font;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+.list {
+  @include display();
+  @include justify-content(flex-start);
+  @include flex-direction(row);
+  @include align-items(center);
+  position: fixed;
+  margin: 20px;
+  top: 25vh;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 97%;
+  height: 50vh;
+  overflow-x: auto;
+}
+.list::-webkit-scrollbar {
+ display: none;
+}
+.game {
+  margin-right: 20px;
+  margin-left: 20px;
+  opacity: 0.5;
+}
+.focus-game {
+  @extend .game;
+  transform: scale(1.25);
+  white-space: nowrap;
+  opacity: 1;
+}
+.thumbnail {
+  margin-bottom: 3px !important;
+  height: 70px;
+  width: 124px;
+  padding: 0;
+}
+.focus-thumbnail {
+  @extend .thumbnail;
+  -webkit-animation: glow 3s ease-in-out 1;
+  animation: glow 3s ease-in-out 1;
+  border: 2px solid red;
+  border-radius: 5%;
+  margin: 3px;
+}
+.box {
+  line-height: 120%;
+  text-align: center;
+  color: white;
+}
+.top-box {
+  @extend .box;
+  font-size: 1em;
+}
+.bottom-box {
+  @extend .box;
+  font-size: 0.75em;
+}
+.logo {
+  height: 40vh;
+}
+.container {
+  @include justify-content(center);
+  display: flex;
+  width: 100vw;
+}
+.calendar-container {
+  @extend .container;
+  position: fixed;
+  font-size: 2em;
+  color: white;
+  top: 80vh;
+}
+.no-games {
+  text-align: center;
+  margin-top: 10vh;
+  font-size: 2em;
+  color: white;
+}
+.detail-modal {
+  font-family: $primary-font;
+  text-align: center;
+  font-size: 1em;
+}
+.score-board {
+  width: 100%;
+  td { 
+    text-align: center;
+    border: 1px solid black;
+  }
+  th {
+    text-align: center;
+    border: 1px solid black;
+  }
+}
+.modal-pic {
+  transform: scale(1.5);
+  border-radius: 5%;
+  height: 70px;
+  width: 124px;
+}
+.spinner-container {
+  @extend .container;
+  position: fixed;
+  top: 86.5vh;
+}
+.spinner {
+  height: 10vh;
+}
+
+
+
+

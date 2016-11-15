@@ -19,17 +19,17 @@ export default class Focus extends Component {
            location, 
            video_thumbnail} = this.props.game;
     return (
-      <div id='focus' className='focus-game game'>
-        <div className='top-box box'>
+      <div id='focus' className='focus-game'>
+        <div className='top-box'>
           <span>{`${away_team_city} ${away_team_name}`}</span>
           <br/>
           <span>{`${home_team_city} ${home_team_name}`}</span>
         </div>
-        <img className='focus-thumbnail thumbnail' 
+        <img className='focus-thumbnail' 
              src={video_thumbnail || replaceImg} 
              onError={err => imgError(this.img)} 
              ref={img => this.img = img}/>
-        <div className='bottom-box box'>
+        <div className='bottom-box'>
           <span>{venue}</span>
           <br/>
           <span>{location}</span>

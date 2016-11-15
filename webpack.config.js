@@ -1,8 +1,7 @@
-var path = require('path');
-var webpack =require('webpack');
+var path    = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-
   devtool: 'source-map', 
   entry: [
     'babel-polyfill',
@@ -15,7 +14,6 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/build/' 
   },
-
   module: {
     loaders: [
       {
@@ -30,10 +28,14 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'css-loader'
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader!sass-loader'
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };

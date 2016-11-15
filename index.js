@@ -13,6 +13,8 @@ import { gameSaga } from './public/src/sagas/sagas';
 
 import App from './public/src/components/app';
 
+import './public/styles/main.scss';
+
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(thunk), applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(gameSaga);

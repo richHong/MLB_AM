@@ -1,10 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
-var nodeModulesPath = path.resolve(__dirname, 'node_modules');
+var webpack   = require('webpack');
+var path      = require('path');
 var buildPath = path.resolve(__dirname, 'public', 'build');
 
 var config = {
-
   devtool: 'source-map',
   entry: ['babel-polyfill','./index.js'],
   output: {
@@ -20,9 +18,8 @@ var config = {
     }),
     new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-})
+    })
   ],
-
   module: {
     loaders: [
       {
@@ -30,16 +27,21 @@ var config = {
         loader: 'babel?presets[]=react,presets[]=es2015',
         exclude: '/node_modules'
       },
-      { test: /\.s?css$/, loaders: ['style', 'css', 'sass?outputStyle=expanded'] },
+      { 
+        test: /\.s?css$/, loaders: ['style', 'css', 'sass?outputStyle=expanded'] 
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader!sass-loader'
+      }
     ]
   },
-
   resolve: {
-      extensions: ['', '.js', '.jsx', '.css', '.scss', '.json'],
-      modulesDirectories: [
-        'node_modules'
-      ]
-  },
+    extensions: ['', '.js', '.jsx', '.css', '.scss', '.json'],
+    modulesDirectories: [
+      'node_modules'
+    ]
+  }
 };
 
 module.exports = config;

@@ -47,7 +47,7 @@ export class Calendar extends Component {
   }
   render() {
     return (
-      <div className='calendar-container container'>
+      <div className='calendar-container'>
         <div>{this._formatDate(this.props.date)}</div>
       </div>
     );

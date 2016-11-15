@@ -18,13 +18,13 @@
 
   4. Controls:
 
-| Key         | Action         |
-|-------------|----------------|
-| Left Arrow  | Move Left      |   
-| Right Arrow | Move Right     |
-| Up Arrow    | Increase Date  |
-| Down Arrow  | Decrease Date  |
-| Enter       | Toggle Overlay |
+    | Key         | Action         |
+    |-------------|----------------|
+    | Left Arrow  | Move Left      |   
+    | Right Arrow | Move Right     |
+    | Up Arrow    | Increase Date  |
+    | Down Arrow  | Decrease Date  |
+    | Enter       | Toggle Overlay |
 
   5. Special Note: 
 
@@ -74,3 +74,4 @@
   - Bootstrap
   - Jquery
   - Underscore
+  - Sass
