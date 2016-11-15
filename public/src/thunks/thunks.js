@@ -1,30 +1,19 @@
 import { receiveGames,
-         spinnerActive,
-         spinnerInactive } from '../actions/actions';
-import fetch               from 'isomorphic-fetch';
+         toggleSpinner } from '../actions/actions';
+import fetch             from 'isomorphic-fetch';
 
-export function fetchInitGames() {
+export function fetchInitGames(testing) {
+  let url = '/api/games';
+  if(testing) {
+    url = 'http://localhost:3000/api/games';
+  }
   return dispatch => {
-    dispatch(spinnerActive());
-    return fetch('/api/games')
+    dispatch(toggleSpinner());
+    return fetch(url)
     .then(response => response.json())
     .then(json => {
       dispatch(receiveGames(json.data.games.game));
-      dispatch(spinnerInactive());
-    })
-    .catch(err => console.log(err));
-  };
-}
-
-//Function used for testing - same as above function other than URL in fetch
-export function testFetchInitGames() {
-  return dispatch => {
-    dispatch(spinnerActive());
-    return fetch('http://localhost:3000/api/games')
-    .then(response => response.json())
-    .then(json => {
-      dispatch(receiveGames(json.data.games.game));
-      dispatch(spinnerInactive());
+      dispatch(toggleSpinner());
     })
     .catch(err => console.log(err));
   };

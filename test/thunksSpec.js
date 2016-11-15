@@ -26,7 +26,7 @@ describe('thunks', () => {
       ];
       const store = mockStore({ games: [] });
 
-      return store.dispatch(thunks.testFetchInitGames())
+      return store.dispatch(thunks.fetchInitGames(true)) //Pass true as argument for testing
         .then(() => { 
           expect(store.getActions()).toEqual(expectedActions);
         });

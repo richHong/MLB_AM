@@ -1,22 +1,21 @@
-import { takeLatest }     from 'redux-saga';
-import { call, put }      from 'redux-saga/effects';
-import * as API           from '../helpers/api';
+import { takeLatest }   from 'redux-saga';
+import { call, put }    from 'redux-saga/effects';
+import * as API         from '../helpers/api';
 import { resetIndex, 
         receiveGames, 
-        spinnerActive, 
-        spinnerInactive } from '../actions/actions';
-import { UPDATE_GAMES }   from '../actions/types';
+        toggleSpinner } from '../actions/actions';
+import { UPDATE_GAMES } from '../actions/types';
 
 export function* updateGames(action) {
   try {
-    yield put(spinnerActive());
+    yield put(toggleSpinner());
     const games = yield call(API.fetchGames, action.payload);
     yield put(resetIndex());
     yield put(receiveGames(games));
   } catch (e) {
     console.log(e);
   } finally {
-    yield put(spinnerInactive());
+    yield put(toggleSpinner());
   }
 }
 export function* gameSaga() {

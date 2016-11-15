@@ -4,8 +4,7 @@ import { UPDATE_GAMES,
          CHANGE_INDEX,
          RESET_INDEX,
          TOGGLE_MODAL,
-         SPINNER_ACTIVE,
-         SPINNER_INACTIVE } from './types'; 
+         TOGGLE_SPINNER } from './types'; 
 
 export function updateGames(date) {
   return {
@@ -41,13 +40,8 @@ export function toggleModal() {
     type: TOGGLE_MODAL
   };
 }
-export function spinnerActive() {
+export function toggleSpinner() {
   return {
-    type: SPINNER_ACTIVE
-  };
-}
-export function spinnerInactive() {
-  return {
-    type: SPINNER_INACTIVE
+    type: TOGGLE_SPINNER
   };
 }
