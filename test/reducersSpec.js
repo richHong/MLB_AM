@@ -1,4 +1,5 @@
 import dateReducer, { date } from '../public/src/reducers/dateReducer';
+import gameReducer           from '../public/src/reducers/gameReducer';
 import * as types            from '../public/src/actions/types';
 import expect                from 'expect';
 
@@ -17,6 +18,22 @@ describe('reducers', () => {
           payload: new Date("2016-11-14")
         })
       ).toEqual(new Date("2016-11-14"));
+    });
+  });
+  describe('gameReducer', () => {
+    it('should return the initial state', () => {
+      expect(
+        gameReducer(undefined, {})
+      ).toEqual([]);
+    });
+
+    it('should handle RECEIVE_GAMES', () => {
+      expect(
+        gameReducer({}, {
+          type: types.RECEIVE_GAMES,
+          payload: ['games']
+        })
+      ).toEqual(['games']);
     });
   });
 });

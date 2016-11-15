@@ -8,7 +8,7 @@ import moment                from 'moment';
 import $                     from 'jquery';
 import _                     from 'underscore';
 
-class Calendar extends Component {
+export class Calendar extends Component {
   constructor() {
     super();
     this._updateGameDay = _.debounce(this._updateGameDay, 90); // I found 90ms to work the best in terms of responsiveness and limiting requests
