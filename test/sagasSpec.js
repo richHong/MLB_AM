@@ -6,7 +6,7 @@ import { expect }      from 'chai';
 
 describe('sagas', () => {
   describe('gameSaga', () => {  
-    it('Should RECEIVE_GAMES when UPDATE_GAMES is dispatched', () => {
+    it('should RECEIVE_GAMES when UPDATE_GAMES is dispatched', () => {
       const mockDate = new Date();
 
       const mockAction = {

@@ -14,7 +14,7 @@ describe('thunks', () => {
       nock.cleanAll();
     });
 
-    it('creates RECEIVE_GAMES when fetching initial games has been done', () => {
+    it('should RECEIVE_GAMES when fetching initial games has been done', () => {
       nock('http://localhost:3000')
         .get('/api/games')
         .reply(200, {data:{games:{game:['games']}}});
