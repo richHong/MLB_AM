@@ -20,9 +20,9 @@ describe('thunks', () => {
         .reply(200, {data:{games:{game:['games']}}});
 
       const expectedActions = [
-        {type: types.SPINNER_ACTIVE},
+        {type: types.TOGGLE_SPINNER},
         {type: types.RECEIVE_GAMES, payload: ['games']},
-        {type: types.SPINNER_INACTIVE}
+        {type: types.TOGGLE_SPINNER}
       ];
       const store = mockStore({ games: [] });
 

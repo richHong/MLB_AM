@@ -75,7 +75,7 @@ describe('reducers', () => {
         modalReducer({}, {
           type: types.TOGGLE_MODAL
         })
-      ).toEqual(true);
+      ).toEqual(false);
     });
   });
   describe('spinnerReducer', () => {
@@ -85,18 +85,10 @@ describe('reducers', () => {
       ).toEqual(false);
     });
 
-    it('should handle SPINNER_ACTIVE', () => {
+    it('should handle TOGGLE_SPINNER', () => {
       expect(
         spinnerReducer({}, {
-          type: types.SPINNER_ACTIVE
-        })
-      ).toEqual(true);
-    });
-
-    it('should handle SPINNER_INACTIVE', () => {
-      expect(
-        spinnerReducer({}, {
-          type: types.SPINNER_INACTIVE
+          type: types.TOGGLE_SPINNER
         })
       ).toEqual(false);
     });

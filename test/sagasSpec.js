@@ -2,6 +2,7 @@ import { updateGames } from '../public/src/sagas/sagas';
 import * as API        from '../public/src/helpers/api';
 import { call, put }   from 'redux-saga/effects';
 import { expect }      from 'chai';
+import * as types      from '../public/src/actions/types';
 
 
 describe('sagas', () => {
@@ -15,11 +16,11 @@ describe('sagas', () => {
       };
 
       const generator = updateGames(mockAction);
-      expect( generator.next().value ).to.deep.equal( put({ type: 'SPINNER_ACTIVE'}) );
+      expect( generator.next().value ).to.deep.equal( put({ type: types.TOGGLE_SPINNER}) );
       expect( generator.next().value ).to.deep.equal( call(API.fetchGames, mockDate) );
-      expect( generator.next().value ).to.deep.equal( put({ type: 'RESET_INDEX'}) );
-      expect( generator.next().value ).to.deep.equal( put({ type: 'RECEIVE_GAMES', payload: [] }) );
-      expect( generator.next().value ).to.deep.equal( put({ type: 'SPINNER_INACTIVE'}) );
+      expect( generator.next().value ).to.deep.equal( put({ type: types.RESET_INDEX}) );
+      expect( generator.next().value ).to.deep.equal( put({ type: types.RECEIVE_GAMES, payload: [] }) );
+      expect( generator.next().value ).to.deep.equal( put({ type: types.TOGGLE_SPINNER}) );
       expect( generator.next() ).to.deep.equal( {done: true, value: undefined} );
     });
   });

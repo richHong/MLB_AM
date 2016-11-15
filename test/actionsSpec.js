@@ -47,16 +47,10 @@ describe('actions', () => {
     };
     expect(actions.toggleModal()).toEqual(expectedAction);
   });
-  it('should create an action to start spinner', () => {
+    it('should create an action to toggle spinner', () => {
     const expectedAction = {
-      type: types.SPINNER_ACTIVE
+      type: types.TOGGLE_SPINNER
     };
-    expect(actions.spinnerActive()).toEqual(expectedAction);
-  });
-  it('should create an action to stop spinner', () => {
-    const expectedAction = {
-      type: types.SPINNER_INACTIVE
-    };
-    expect(actions.spinnerInactive()).toEqual(expectedAction);
-  });  
+    expect(actions.toggleSpinner()).toEqual(expectedAction);
+  }); 
 });
