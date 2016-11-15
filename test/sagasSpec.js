@@ -4,7 +4,6 @@ import { call, put }   from 'redux-saga/effects';
 import { expect }      from 'chai';
 import * as types      from '../public/src/actions/types';
 
-
 describe('sagas', () => {
   describe('gameSaga', () => {  
     it('should RECEIVE_GAMES when UPDATE_GAMES is dispatched', () => {

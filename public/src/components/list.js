@@ -8,7 +8,7 @@ import Focus                 from './focus';
 import { changeIndex, 
          toggleModal }       from '../actions/actions';
 
-class List extends Component {
+export class List extends Component {
   componentWillMount() {
     $(document).on('keydown', event => {
       const key = event.keyCode;

@@ -10,7 +10,7 @@ import Spinner               from './spinner';
 import Calendar              from './calendar';
 import DetailModal           from './modal';
 
-class App extends Component {
+export class App extends Component {
   componentWillMount() {
     this.props.fetchInitGames();
   }

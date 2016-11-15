@@ -8,7 +8,7 @@ import _                     from 'underscore';
 import { imgError, 
          replaceImg }        from '../helpers/imgError';
 
-class DetailModal extends Component {
+export class DetailModal extends Component {
   render() {
     const { away_team_city, 
             away_team_name, 
