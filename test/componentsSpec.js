@@ -3,6 +3,7 @@ import { shallow,
         mount }        from 'enzyme';
 import { expect }      from 'chai';
 import sinon           from 'sinon';
+import moment          from 'moment';
 import { App }         from '../public/src/components/app';
 import { Calendar }    from '../public/src/components/calendar';
 import Focus           from '../public/src/components/focus';
@@ -12,9 +13,6 @@ import Logo            from '../public/src/components/logo';
 import { DetailModal } from '../public/src/components/modal';
 import NoGames         from '../public/src/components/noGames';
 import Spinner         from '../public/src/components/spinner';
-import { Provider }    from 'react-redux';
-import rootReducer     from '../public/src/reducers/root';
-import { createStore } from 'redux';
 
 describe('components', () => {
   describe('App', () => {
@@ -30,7 +28,7 @@ describe('components', () => {
 
       expect(enzymeWrapper.find('div')).to.have.length(1);
     });
-    it('calls componentWillMount', () => {
+    it('should call componentWillMount', () => {
       const appSpy = sinon.spy(App.prototype, 'componentWillMount');
       const props = {
         fetchInitGames:function(){},
@@ -40,7 +38,7 @@ describe('components', () => {
         showSpinner: false
       };
       const enzymeWrapper = shallow(<App {...props}/>);
-      
+
       expect(appSpy.calledOnce).to.equal(true);
     });
   });
@@ -52,11 +50,35 @@ describe('components', () => {
       expect(enzymeWrapper.find('div')).to.have.length(2);
       expect(enzymeWrapper.find('div.calendar-container')).to.have.length(1);
     });
-    it('calls componentWillMount', () => {
+    it('should call componentWillMount', () => {
       const calendarSpy = sinon.spy(Calendar.prototype, 'componentWillMount');
       const props = {date: new Date()};
       const enzymeWrapper = mount(<Calendar {...props} />);
 
+      expect(calendarSpy.calledOnce).to.equal(true);
+    });
+    it('should format a given date', () => {
+      const date = new Date();
+      const expectedDate = moment(date).format('MM/DD/YYYY');
+
+      expect(Calendar.prototype._formatDate(date)).to.equal(expectedDate);
+    });
+    it('should calculate a new date', () => {
+      const date = new Date()
+      const props = {date};
+      const enzymeWrapper = mount(<Calendar {...props}/>);
+      const expectedDate = moment(date).add(1,'days')
+
+      expect(enzymeWrapper.instance()._calcDate(1)).to.deep.equal(expectedDate);
+    });
+    it('should call _updateGameDay on key press', () => {
+      const date = new Date()
+      const props = {date};
+      const enzymeWrapper = mount(<Calendar {...props}/>);
+      const instance = enzymeWrapper.instance()
+      const calendarSpy = sinon.spy(instance, '_updateGameDay');
+      instance._handleKeyDown(38);
+   
       expect(calendarSpy.calledOnce).to.equal(true);
     });
   });
@@ -67,7 +89,7 @@ describe('components', () => {
 
       expect(enzymeWrapper.find('div')).to.have.length(3);
     });
-    it('calls componentDidMount', () => {
+    it('should call componentDidMount', () => {
       const focusSpy = sinon.spy(Focus.prototype, 'componentDidMount');
       const props = {game:{}};
       const enzymeWrapper = mount(<Focus {...props} />);
@@ -79,8 +101,9 @@ describe('components', () => {
     it('should render self and subcomponents', () => {
       const props = {game:{}};
       const enzymeWrapper = shallow(<Game {...props}/>)
-      expect(enzymeWrapper.find('img').hasClass('thumbnail')).to.be.true;
 
+      expect(enzymeWrapper.find('img').hasClass('thumbnail')).to.be.true;
+      expect(enzymeWrapper.find('div')).to.have.length(1);
     });
   });
   describe('List', () => {
@@ -90,7 +113,7 @@ describe('components', () => {
 
       expect(enzymeWrapper.find('div')).to.have.length(1);
     });
-    it('calls componentWillMount', () => {
+    it('should call componentWillMount', () => {
       const listSpy = sinon.spy(List.prototype, 'componentWillMount');
       const props = {games:[]};
       const enzymeWrapper = mount(<List {...props} />);
