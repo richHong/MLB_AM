@@ -29,13 +29,11 @@ app.all('/build/*', function (req, res) {
 // Endpoint used to get initial games with date 5/20/16
 app.get('/api/games', function(req,res){
   fetch('http://gdx.mlb.com/components/game/mlb/year_2016/month_05/day_20/master_scoreboard.json')
-  .then(response => {
-    response.json()
-    .then(json => {
-      res.send(json);
-    });
-  });
+  .then(response => response.json())
+  .then(json => res.send(json))
+  .catch(err => res.send(err));
 });
+
 
 //Object literal used to cache previous requests to MLB API
 const cache = {}; 
@@ -47,18 +45,18 @@ app.post('/api/games', function(req,res){
   var day = date.slice(3,5);
   var month = date.slice(0,2);
 
-  if (cache[date]){
+  if (cache[date]) {
     res.send(cache[date]);
   } else {
     fetch(`http://gdx.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`)
-    .then(response => {
-      response.json()
-      .then(json => {
-        cache[date] = json;
-        res.send(json);
-      });
-    });
+    .then(response => response.json())
+    .then(json => {
+      cache[date] = json;
+      res.send(json);
+    })
+    .catch(err => res.send(err));
   }
+  
 });
 
 proxy.on('error', function(e) {

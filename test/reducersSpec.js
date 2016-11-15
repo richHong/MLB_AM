@@ -1,5 +1,8 @@
 import dateReducer, { date } from '../public/src/reducers/dateReducer';
 import gameReducer           from '../public/src/reducers/gameReducer';
+import indexReducer          from '../public/src/reducers/indexReducer';
+import modalReducer          from '../public/src/reducers/modalReducer';
+import spinnerReducer        from '../public/src/reducers/spinnerReducer';
 import * as types            from '../public/src/actions/types';
 import expect                from 'expect';
 
@@ -36,4 +39,67 @@ describe('reducers', () => {
       ).toEqual(['games']);
     });
   });
+    describe('indexReducer', () => {
+    it('should return the initial state', () => {
+      expect(
+        indexReducer(undefined, {})
+      ).toEqual(0);
+    });
+
+    it('should handle CHANGE_INDEX', () => {
+      expect(
+        indexReducer({}, {
+          type: types.CHANGE_INDEX,
+          payload: 2
+        })
+      ).toEqual(2);
+    });
+
+    it('should handle RESET_INDEX', () => {
+      expect(
+        indexReducer({}, {
+          type: types.RESET_INDEX
+        })
+      ).toEqual(0);
+    });
+  });
+  describe('modalReducer', () => {
+    it('should return the initial state', () => {
+      expect(
+        modalReducer(undefined, {})
+      ).toEqual(false);
+    });
+
+    it('should handle TOGGLE_MODAL', () => {
+      expect(
+        modalReducer({}, {
+          type: types.TOGGLE_MODAL
+        })
+      ).toEqual(true);
+    });
+  });
+  describe('spinnerReducer', () => {
+    it('should return the initial state', () => {
+      expect(
+        spinnerReducer(undefined, {})
+      ).toEqual(false);
+    });
+
+    it('should handle SPINNER_ACTIVE', () => {
+      expect(
+        spinnerReducer({}, {
+          type: types.SPINNER_ACTIVE
+        })
+      ).toEqual(true);
+    });
+
+    it('should handle SPINNER_INACTIVE', () => {
+      expect(
+        spinnerReducer({}, {
+          type: types.SPINNER_INACTIVE
+        })
+      ).toEqual(false);
+    });
+  });
+
 });

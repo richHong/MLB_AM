@@ -10,15 +10,9 @@ export function fetchGames(date) {
         },
         body: JSON.stringify({date})
     })
-    .then(response => {
-        if(!response.ok){
-          return reject(new Error('Failed to fetch games from server.'));
-        }
-        response.json()
-        .then(json => {
-          return resolve(json.data.games.game);
-        });
-    });
+    .then(response => response.json())
+    .then(json => resolve(json.data.games.game))
+    .catch(err => reject(err));
   });
 }
 
@@ -32,14 +26,8 @@ export function testFetchGames(date) {
         },
         body: JSON.stringify({date})
     })
-    .then(response => {
-        if(!response.ok){
-          return reject(new Error('Failed to fetch games from server.'));
-        }
-        response.json()
-        .then(json => {
-          return resolve(json.data.games.game);
-        });
-    });
+    .then(response => response.json())
+    .then(json => resolve(json.data.games.game))
+    .catch(err => reject(err));
   });
 }

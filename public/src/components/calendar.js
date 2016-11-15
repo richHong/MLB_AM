@@ -31,11 +31,10 @@ export class Calendar extends Component {
   _handleKeyDown(code) {
     if (code === 38){ // Up Arrow Key
       this._updateDate(1);
-      this._updateGameDay();
     } else if (code === 40){ // Down Arrow Key
       this._updateDate(-1);
-      this._updateGameDay();
     }
+      this._updateGameDay();
   }
   _formatDate(date) {
     return moment(date).format('L'); //Moment used to format date object to MM/DD/YYYY
