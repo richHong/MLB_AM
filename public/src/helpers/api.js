@@ -4,9 +4,7 @@ export function fetchGames(date) {
   return new Promise((resolve, reject) => {
     fetch('/api/games', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({date})
     })
     .then(response => response.json())
