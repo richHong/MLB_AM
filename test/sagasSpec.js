@@ -8,12 +8,10 @@ describe('sagas', () => {
   describe('gameSaga', () => {  
     it('should RECEIVE_GAMES when UPDATE_GAMES is dispatched', () => {
       const mockDate = new Date();
-
       const mockAction = {
         type: 'UPDATE_GAMES',
         payload: mockDate
       };
-
       const generator = updateGames(mockAction);
       expect( generator.next().value ).to.deep.equal( put({ type: types.TOGGLE_SPINNER}) );
       expect( generator.next().value ).to.deep.equal( call(API.fetchGames, mockDate) );

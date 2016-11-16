@@ -13,7 +13,6 @@ describe('reducers', () => {
         dateReducer(undefined, {})
       ).toEqual(date);
     });
-
     it('should handle CHANGE_DATE', () => {
       expect(
         dateReducer({}, {
@@ -29,7 +28,6 @@ describe('reducers', () => {
         gameReducer(undefined, {})
       ).toEqual([]);
     });
-
     it('should handle RECEIVE_GAMES', () => {
       expect(
         gameReducer({}, {
@@ -45,7 +43,6 @@ describe('reducers', () => {
         indexReducer(undefined, {})
       ).toEqual(0);
     });
-
     it('should handle CHANGE_INDEX', () => {
       expect(
         indexReducer({}, {
@@ -54,7 +51,6 @@ describe('reducers', () => {
         })
       ).toEqual(2);
     });
-
     it('should handle RESET_INDEX', () => {
       expect(
         indexReducer({}, {
@@ -69,7 +65,6 @@ describe('reducers', () => {
         modalReducer(undefined, {})
       ).toEqual(false);
     });
-
     it('should handle TOGGLE_MODAL', () => {
       expect(
         modalReducer({}, {
@@ -84,7 +79,6 @@ describe('reducers', () => {
         spinnerReducer(undefined, {})
       ).toEqual(false);
     });
-
     it('should handle TOGGLE_SPINNER', () => {
       expect(
         spinnerReducer({}, {

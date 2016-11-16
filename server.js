@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 bundle();
 app.all('/build/*', (req, res) => proxy.web(req, res, {target: 'http://localhost:8080'}));
+proxy.on('error', (e) => console.log('Could not connect to proxy, please try again...'));
+app.listen(port, () => console.log('Server running on port ' + port));
 // Endpoint used to get initial games with date 5/20/16
 app.get('/api/games', (req,res) => {
   fetch('http://gdx.mlb.com/components/game/mlb/year_2016/month_05/day_20/master_scoreboard.json')
@@ -42,5 +44,3 @@ app.post('/api/games', (req,res) => {
     .catch(err => res.send(err));
   }
 });
-proxy.on('error', (e) => console.log('Could not connect to proxy, please try again...'));
-app.listen(port, () => console.log('Server running on port ' + port));
