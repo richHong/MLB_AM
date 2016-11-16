@@ -26,7 +26,9 @@ export class Calendar extends Component {
     $(document).off('keydown');
   }
   _calcDate(days) {
-    return moment(this.props.date).add(days,'days');
+    const newDate = moment(this.props.date).add(days,'days');
+    const time = newDate - new Date();
+    return time > 0  ? this.props.date : newDate; // Limits date up until today
   }
   _handleKeyDown(code) {
     if (code === 38){ // Up Arrow Key
