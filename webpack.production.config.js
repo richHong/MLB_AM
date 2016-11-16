@@ -1,8 +1,8 @@
-var webpack   = require('webpack');
-var path      = require('path');
-var buildPath = path.resolve(__dirname, 'public', 'build');
-
-var config = {
+'use strict';
+const webpack   = require('webpack');
+const path      = require('path');
+const buildPath = path.resolve(__dirname, 'public', 'build');
+module.exports = {
   devtool: 'source-map',
   entry: ['babel-polyfill','./index.js'],
   output: {
@@ -44,4 +44,3 @@ var config = {
     ]
   }
 };
-module.exports = config;
