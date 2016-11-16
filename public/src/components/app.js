@@ -19,7 +19,7 @@ export class App extends Component {
     return (
       <div>
         <Logo />
-        {games.length ? <DetailModal game={games[index]} showModal={showModal}/> : <NoGames />}
+        {games.length ? <DetailModal game={games[index]} showModal={showModal}/> : <NoGames showSpinner={showSpinner}/>}
         {showSpinner ? <Spinner /> : null}
         <List games={games} index={index}/>
         <Calendar date={date}/>
