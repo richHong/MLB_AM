@@ -65,12 +65,12 @@ describe('components', () => {
       const expectedDate = moment(date).add(-1,'days')
       expect(enzymeWrapper.instance()._calcDate(-1)).to.deep.equal(expectedDate);
     });
-    it('should call _updateGameDay on key press', () => {
+    it('should call _updateDate on valid key press', () => {
       const date = new Date()
       const props = {date};
       const enzymeWrapper = mount(<Calendar {...props}/>);
       const instance = enzymeWrapper.instance()
-      const calendarSpy = sinon.spy(instance, '_updateGameDay');
+      const calendarSpy = sinon.spy(instance, '_updateDate');
       instance._handleKeyDown(38);
       expect(calendarSpy.calledOnce).to.equal(true);
     });
