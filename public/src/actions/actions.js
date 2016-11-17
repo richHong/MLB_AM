@@ -4,7 +4,11 @@ import { UPDATE_GAMES,
          CHANGE_INDEX,
          RESET_INDEX,
          TOGGLE_MODAL,
-         TOGGLE_SPINNER } from './types'; 
+         TOGGLE_SPINNER,
+         SHOW_WARN_TOAST,
+         HIDE_WARN_TOAST,
+         SHOW_ERROR_TOAST,
+         HIDE_ERROR_TOAST } from './types'; 
 
 export function updateGames(date) {
   return {
@@ -47,22 +51,22 @@ export function toggleSpinner() {
 }
 export function showWarnToast() {
   return {
-    type: 'SHOW_WARN_TOAST'
+    type: SHOW_WARN_TOAST
   };
 }
 export function hideWarnToast() {
   return {
-    type: 'HIDE_WARN_TOAST'
+    type: HIDE_WARN_TOAST
   };
 }
 export function showErrorToast(error) {
   return {
-    type: 'SHOW_ERROR_TOAST',
+    type: SHOW_ERROR_TOAST,
     payload: error
   };
 }
 export function hideErrorToast() {
   return {
-    type: 'HIDE_ERROR_TOAST'
+    type: HIDE_ERROR_TOAST
   };
 }
