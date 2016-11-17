@@ -47,7 +47,7 @@ describe('actions', () => {
     };
     expect(actions.toggleModal()).toEqual(expectedAction);
   });
-    it('should create an action to toggle spinner', () => {
+  it('should create an action to toggle spinner', () => {
     const expectedAction = {
       type: types.TOGGLE_SPINNER
     };

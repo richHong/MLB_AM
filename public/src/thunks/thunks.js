@@ -1,6 +1,7 @@
 import { receiveGames,
-         toggleSpinner } from '../actions/actions';
-import fetch             from 'isomorphic-fetch';
+         toggleSpinner,
+         showErrorToast } from '../actions/actions';
+import fetch              from 'isomorphic-fetch';
 
 export function fetchInitGames(testing) {
   let url = '/api/games';
@@ -15,6 +16,6 @@ export function fetchInitGames(testing) {
       dispatch(receiveGames(json.data.games.game));
       dispatch(toggleSpinner());
     })
-    .catch(err => console.log(err));
+    .catch(err => dispatch(showErrorToast(err)));
   };
 }

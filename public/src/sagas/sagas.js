@@ -3,8 +3,9 @@ import { call, put }    from 'redux-saga/effects';
 import * as API         from '../helpers/api';
 import { resetIndex, 
         receiveGames, 
-        toggleSpinner } from '../actions/actions';
-import { UPDATE_GAMES } from '../actions/types';
+        toggleSpinner,
+        showErrorToast } from '../actions/actions';
+import { UPDATE_GAMES }  from '../actions/types';
 
 export function* updateGames(action) {
   try {
@@ -12,8 +13,8 @@ export function* updateGames(action) {
     const games = yield call(API.fetchGames, action.payload);
     yield put(resetIndex());
     yield put(receiveGames(games));
-  } catch (e) {
-    console.log(e);
+  } catch (err) {
+    yield put(showErrorToast(err));
   } finally {
     yield put(toggleSpinner());
   }

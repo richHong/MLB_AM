@@ -3,7 +3,8 @@ import React,
 import { connect }           from 'react-redux';
 import { bindActionCreators} from 'redux';
 import { changeDate, 
-         updateGames }       from '../actions/actions';
+         updateGames,
+         showWarnToast }   from '../actions/actions';
 import moment                from 'moment';
 import $                     from 'jquery';
 import _                     from 'underscore';
@@ -44,7 +45,9 @@ export class Calendar extends Component {
     const newDate     = this._calcDate(diff);
     const formNewDate = this._formatDate(newDate);
     const formDate    = this._formatDate(this.props.date);
-    if (formNewDate !== formDate) {
+    if (formNewDate === formDate) {
+      this.props.showWarnToast();
+    } else {
       this.props.changeDate(newDate);
       this._updateGameDay();
     }
@@ -61,6 +64,6 @@ export class Calendar extends Component {
   }
 }
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({changeDate, updateGames}, dispatch)
+  return bindActionCreators({changeDate, updateGames, showWarnToast}, dispatch)
 }
 export default connect(null, mapDispatchToProps)(Calendar);

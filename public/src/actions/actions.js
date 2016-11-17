@@ -45,3 +45,24 @@ export function toggleSpinner() {
     type: TOGGLE_SPINNER
   };
 }
+export function showWarnToast() {
+  return {
+    type: 'SHOW_WARN_TOAST'
+  };
+}
+export function hideWarnToast() {
+  return {
+    type: 'HIDE_WARN_TOAST'
+  };
+}
+export function showErrorToast(error) {
+  return {
+    type: 'SHOW_ERROR_TOAST',
+    payload: error
+  };
+}
+export function hideErrorToast() {
+  return {
+    type: 'HIDE_ERROR_TOAST'
+  };
+}
