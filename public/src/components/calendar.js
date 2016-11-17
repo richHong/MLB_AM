@@ -4,7 +4,7 @@ import { connect }           from 'react-redux';
 import { bindActionCreators} from 'redux';
 import { changeDate, 
          updateGames,
-         showWarnToast }   from '../actions/actions';
+         showWarnToast }     from '../actions/actions';
 import moment                from 'moment';
 import $                     from 'jquery';
 import _                     from 'underscore';

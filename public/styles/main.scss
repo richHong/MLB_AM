@@ -128,8 +128,7 @@ $primary-font: 'Archivo Narrow', sans-serif;
     border: 1px solid black;
   }
   th {
-    text-align: center;
-    border: 1px solid black;
+    @extend td;
   }
 }
 .modal-pic {
