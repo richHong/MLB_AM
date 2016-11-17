@@ -26,6 +26,9 @@ export class Calendar extends Component {
   componentWillUnmount() {
     $(document).off('keydown');
   }
+  componentDidUpdate(){
+    this._updateGameDay();
+  }
   _calcDate(days) {
     const newDate  = moment(this.props.date).add(days,'days');
     const timeDiff = newDate - new Date();
@@ -45,12 +48,7 @@ export class Calendar extends Component {
     const newDate     = this._calcDate(diff);
     const formNewDate = this._formatDate(newDate);
     const formDate    = this._formatDate(this.props.date);
-    if (formNewDate === formDate) {
-      this.props.showWarnToast();
-    } else {
-      this.props.changeDate(newDate);
-      this._updateGameDay();
-    }
+    formNewDate === formDate ? this.props.showWarnToast() : this.props.changeDate(newDate);
   }
   _updateGameDay() {
     this.props.updateGames(this._formatDate(this.props.date));

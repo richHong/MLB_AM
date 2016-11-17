@@ -1,18 +1,18 @@
-import React            from 'react';
+import React             from 'react';
 import { shallow, 
-        mount }        from 'enzyme';
-import { expect }      from 'chai';
-import sinon           from 'sinon';
-import moment          from 'moment';
-import { App }         from '../public/src/components/app';
-import { Calendar }    from '../public/src/components/calendar';
-import Focus           from '../public/src/components/focus';
-import Game            from '../public/src/components/game';
-import { List }        from '../public/src/components/list';
-import Logo            from '../public/src/components/logo';
-import { DetailModal } from '../public/src/components/modal';
-import NoGames         from '../public/src/components/noGames';
-import Spinner         from '../public/src/components/spinner';
+        mount }          from 'enzyme';
+import { expect }        from 'chai';
+import sinon             from 'sinon';
+import moment            from 'moment';
+import { App }           from '../public/src/components/app';
+import { Calendar }      from '../public/src/components/calendar';
+import Focus             from '../public/src/components/focus';
+import Game              from '../public/src/components/game';
+import { List }          from '../public/src/components/list';
+import Logo              from '../public/src/components/logo';
+import { DetailModal }   from '../public/src/components/modal';
+import NoGames           from '../public/src/components/noGames';
+import Spinner           from '../public/src/components/spinner';
 
 describe('components', () => {
   describe('App', () => {
@@ -72,6 +72,15 @@ describe('components', () => {
       const instance = enzymeWrapper.instance()
       const calendarSpy = sinon.spy(instance, '_updateDate');
       instance._handleKeyDown(38);
+      expect(calendarSpy.calledOnce).to.equal(true);
+    });
+    it('should call _updateGameDay when props are updated', () => {
+      const date = new Date()
+      const props = {date};
+      const enzymeWrapper = mount(<Calendar {...props}/>);
+      const instance = enzymeWrapper.instance()
+      const calendarSpy = sinon.spy(instance, '_updateGameDay');
+      enzymeWrapper.update();
       expect(calendarSpy.calledOnce).to.equal(true);
     });
   });

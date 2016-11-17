@@ -52,5 +52,31 @@ describe('actions', () => {
       type: types.TOGGLE_SPINNER
     };
     expect(actions.toggleSpinner()).toEqual(expectedAction);
+  });
+  it('should create an action to show warning toast', () => {
+    const expectedAction = {
+      type: types.SHOW_WARN_TOAST
+    };
+    expect(actions.showWarnToast()).toEqual(expectedAction);
   }); 
+  it('should create an action to hide warning toast', () => {
+    const expectedAction = {
+      type: types.HIDE_WARN_TOAST
+    };
+    expect(actions.hideWarnToast()).toEqual(expectedAction);
+  });
+  it('should create an action to show error toast', () => {
+    const mockError = new Error('Error');
+    const expectedAction = {
+      type: types.SHOW_ERROR_TOAST,
+      payload: mockError
+    };
+    expect(actions.showErrorToast(mockError)).toEqual(expectedAction);
+  });
+  it('should create an action to hide error toast', () => {
+    const expectedAction = {
+      type: types.HIDE_ERROR_TOAST
+    };
+    expect(actions.hideErrorToast()).toEqual(expectedAction);
+  });   
 });

@@ -21,10 +21,10 @@ export class App extends Component {
   componentDidUpdate() {
     const { warning, error, errMsg } = this.props.toast;
     if(warning) {
-      notify.show('Cannot exceed today\'s date', 'warning', 2000);
+      notify.show('Cannot exceed today\'s date', 'warning', 2500);
       this.props.hideWarnToast();
     } else if (error){
-      notify.show(errMsg, 'error');
+      notify.show(errMsg.message, 'error');
       this.props.hideErrorToast();
     }
   }
