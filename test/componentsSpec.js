@@ -5,7 +5,8 @@ import { expect }        from 'chai';
 import sinon             from 'sinon';
 import moment            from 'moment';
 import { App }           from '../public/src/components/app';
-import { Calendar }      from '../public/src/components/calendar';
+import ConCalendar,
+       { Calendar }      from '../public/src/components/calendar';
 import Focus             from '../public/src/components/focus';
 import Game              from '../public/src/components/game';
 import { List }          from '../public/src/components/list';
@@ -13,6 +14,9 @@ import Logo              from '../public/src/components/logo';
 import { DetailModal }   from '../public/src/components/modal';
 import NoGames           from '../public/src/components/noGames';
 import Spinner           from '../public/src/components/spinner';
+import Provider          from 'react-redux';
+import { createStore }   from 'redux';
+import rootReducer       from '../public/src/reducers/root';
 
 describe('components', () => {
   describe('App', () => {
@@ -73,6 +77,8 @@ describe('components', () => {
       const calendarSpy = sinon.spy(instance, '_updateDate');
       instance._handleKeyDown(38);
       expect(calendarSpy.calledOnce).to.equal(true);
+      instance._handleKeyDown(40);
+      expect(calendarSpy.calledTwice).to.equal(true);
     });
     it('should call _updateGameDay when props are updated', () => {
       const date = new Date()
@@ -89,6 +95,7 @@ describe('components', () => {
       const props = {game:{}};
       const enzymeWrapper = shallow(<Focus {...props}/>)
       expect(enzymeWrapper.find('div')).to.have.length(3);
+      expect(enzymeWrapper.find('img')).to.have.length(1);
     });
     it('should call componentDidMount', () => {
       const focusSpy = sinon.spy(Focus.prototype, 'componentDidMount');
@@ -101,8 +108,10 @@ describe('components', () => {
     it('should render self and subcomponents', () => {
       const props = {game:{}};
       const enzymeWrapper = shallow(<Game {...props}/>)
-      expect(enzymeWrapper.find('img').hasClass('thumbnail')).to.be.true;
       expect(enzymeWrapper.find('div')).to.have.length(1);
+      expect(enzymeWrapper.find('img')).to.have.length(1);
+      expect(enzymeWrapper.find('div').hasClass('game')).to.be.true;
+      expect(enzymeWrapper.find('img').hasClass('thumbnail')).to.be.true;
     });
   });
   describe('List', () => {
@@ -110,6 +119,7 @@ describe('components', () => {
       const props = {games:[]};
       const enzymeWrapper = shallow(<List {...props}/>)
       expect(enzymeWrapper.find('div')).to.have.length(1);
+      expect(enzymeWrapper.find('div').hasClass('list')).to.be.true;
     });
     it('should call componentWillMount', () => {
       const listSpy = sinon.spy(List.prototype, 'componentWillMount');
@@ -121,6 +131,8 @@ describe('components', () => {
   describe('Logo', () => {
     it('should render self and subcomponents', () => {
       const enzymeWrapper = shallow(<Logo />)
+      expect(enzymeWrapper.find('div')).to.have.length(1);
+      expect(enzymeWrapper.find('img')).to.have.length(1);
       expect(enzymeWrapper.find('div').hasClass('container')).to.be.true;
       expect(enzymeWrapper.find('img').hasClass('logo')).to.be.true;
     });
@@ -130,17 +142,24 @@ describe('components', () => {
       const props = {game:{time_date:''}, showModal:false};
       const enzymeWrapper = shallow(<DetailModal {...props} />);
       expect(enzymeWrapper.find('div')).to.have.length(4);
+      expect(enzymeWrapper.find('img')).to.have.length(1);
+      expect(enzymeWrapper.find('table')).to.have.length(1);
+      expect(enzymeWrapper.find('img').hasClass('modal-pic')).to.be.true;
+      expect(enzymeWrapper.find('table').hasClass('score-board')).to.be.true;
     });
   });
   describe('NoGames', () => {
     it('should render self and subcomponents', () => {
       const enzymeWrapper = shallow(<NoGames />)
+      expect(enzymeWrapper.find('div')).to.have.length(1);
       expect(enzymeWrapper.find('div').hasClass('no-games')).to.be.true;
     });
   });
   describe('Spinner', () => {
     it('should render self and subcomponents', () => {
       const enzymeWrapper = shallow(<Spinner />)
+      expect(enzymeWrapper.find('div')).to.have.length(1);
+      expect(enzymeWrapper.find('img')).to.have.length(1);
       expect(enzymeWrapper.find('div').hasClass('spinner-container')).to.be.true;
       expect(enzymeWrapper.find('img').hasClass('spinner')).to.be.true;
     });

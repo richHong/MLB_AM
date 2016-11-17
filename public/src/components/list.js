@@ -22,7 +22,7 @@ export class List extends Component {
   }
   _handleKeyDown(code) {
     let newIndex;
-    if (code === 39) { //Left Arrow Key
+    if (code === 39) {        //Left Arrow Key
       newIndex = this.props.index + 1;
       if (newIndex <= this.props.games.length - 1) {
         this.props.changeIndex(newIndex);
