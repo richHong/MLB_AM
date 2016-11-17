@@ -24,16 +24,14 @@ export class List extends Component {
     let newIndex;
     if (code === 39) { //Left Arrow Key
       newIndex = this.props.index + 1;
-      if (newIndex > this.props.games.length - 1) {
-        newIndex = this.props.games.length - 1;
+      if (newIndex <= this.props.games.length - 1) {
+        this.props.changeIndex(newIndex);
       }
-      this.props.changeIndex(newIndex);
     } else if (code === 37) { // Right Arrow Key
       newIndex = this.props.index - 1;
-      if (newIndex < 0) {
-        newIndex = 0;
+      if (newIndex >= 0) {
+        this.props.changeIndex(newIndex);
       }
-      this.props.changeIndex(newIndex);
     } else if (code === 13) { //Enter Key
       this.props.toggleModal();
     }
