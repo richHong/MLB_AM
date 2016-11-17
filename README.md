@@ -26,7 +26,11 @@
     | Down Arrow  | Decrease Date  |
     | Enter       | Toggle Overlay |
 
-  5. Special Note: 
+  5. Preferred Browser:
+
+    This application was mainly developed in **Chrome**. Other browsers may have varying styling results.
+
+  6. Special Note: 
 
     On webpage load, the current games are set to the original JSON data found in the instructions, 5/20/2016. I kept this data for initial loading since its no longer baseball season and would load an empty list if I used the current date. I figure it was best for demonstration purposes.
 
