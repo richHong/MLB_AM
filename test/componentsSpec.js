@@ -62,8 +62,8 @@ describe('components', () => {
       const date = new Date()
       const props = {date};
       const enzymeWrapper = mount(<Calendar {...props}/>);
-      const expectedDate = moment(date).add(1,'days')
-      expect(enzymeWrapper.instance()._calcDate(1)).to.deep.equal(expectedDate);
+      const expectedDate = moment(date).add(-1,'days')
+      expect(enzymeWrapper.instance()._calcDate(-1)).to.deep.equal(expectedDate);
     });
     it('should call _updateGameDay on key press', () => {
       const date = new Date()
