@@ -26,23 +26,28 @@ export class Calendar extends Component {
     $(document).off('keydown');
   }
   _calcDate(days) {
-    const newDate = moment(this.props.date).add(days,'days');
-    const time = newDate - new Date();
-    return time > 0  ? this.props.date : newDate; // Limits date up until today
+    const newDate  = moment(this.props.date).add(days,'days');
+    const timeDiff = newDate - new Date();
+    return timeDiff > 0  ? this.props.date : newDate; // Limits date up until today
   }
   _handleKeyDown(code) {
-    if (code === 38){ // Up Arrow Key
+    if (code === 38){        // Up Arrow Key
       this._updateDate(1);
     } else if (code === 40){ // Down Arrow Key
       this._updateDate(-1);
     }
-      this._updateGameDay();
   }
   _formatDate(date) {
     return moment(date).format('L'); //Moment used to format date object to MM/DD/YYYY
   }
   _updateDate(diff) {
-    this.props.changeDate(this._calcDate(diff));
+    const newDate     = this._calcDate(diff);
+    const formNewDate = this._formatDate(newDate);
+    const formDate    = this._formatDate(this.props.date);
+    if (formNewDate !== formDate) {
+      this.props.changeDate(newDate);
+      this._updateGameDay();
+    }
   }
   _updateGameDay() {
     this.props.updateGames(this._formatDate(this.props.date));
