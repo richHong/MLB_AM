@@ -141,7 +141,7 @@ describe('components', () => {
     it('should render self and subcomponents', () => {
       const props = {game:{time_date:''}, showModal:false};
       const enzymeWrapper = shallow(<DetailModal {...props} />);
-      expect(enzymeWrapper.find('div')).to.have.length(8);
+      expect(enzymeWrapper.find('div')).to.have.length(13);
       expect(enzymeWrapper.find('table')).to.have.length(1);
       expect(enzymeWrapper.find('table').hasClass('score-board')).to.be.true;
     });
