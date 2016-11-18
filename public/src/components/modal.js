@@ -56,9 +56,9 @@ export class DetailModal extends Component {
             <table className='score-board'>
               <thead>
                <tr>
-                <th><b>Home</b></th>
+                <th><b>{home_name_abbrev}</b></th>
                 <th><b>Inning</b></th>
-                <th><b>Away</b></th> 
+                <th><b>{away_name_abbrev}</b></th> 
               </tr>
               </thead>
             <tbody>
