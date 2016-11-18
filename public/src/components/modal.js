@@ -34,6 +34,15 @@ export class DetailModal extends Component {
                 </div>
                 <div className='mod-title'>{away_team_name}</div>
               </div>
+
+              <div className='game-info'>
+                <br/>
+                <div>{venue}</div>
+                <div>{location}</div>
+                <div>{`${time_date.slice(5,10)}/${time_date.slice(0,4)}`}</div>
+                <br/>
+              </div>  
+
               <div className='floater-left'>
                 <div className ='sprite'>
                   <div className={home_name_abbrev}></div>
@@ -45,13 +54,7 @@ export class DetailModal extends Component {
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
            
-            <div className='game-info'>
-              <br/>
-              <div>{venue}</div>
-              <div>{location}</div>
-              <div>{`${time_date.slice(5,10)}/${time_date.slice(0,4)}`}</div>
-              <br/>
-            </div>
+            
 
             <table className='score-board'>
               <thead>

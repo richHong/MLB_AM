@@ -159,12 +159,15 @@ $primary-font: 'Archivo Narrow', sans-serif;
 }
 .floater-left {
   float: left;
-  margin: 10px;
+  width: 33.33%;
 }
 .floater-right {
-  float: right;
-  margin: 10px;
+  float: left;
+  width: 33.33%;
 }
 .game-info {
+  float: left;
+  font-size: 12px;
+  width: 33.33%;
   height: 70px;
 }
