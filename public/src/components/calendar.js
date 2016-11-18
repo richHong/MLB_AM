@@ -27,8 +27,7 @@ export class Calendar extends Component {
     $(document).off('keydown');
   }
   componentDidMount() {
-    $('.fa-chevron-up').hide().fadeToggle('slow');
-    $('.fa-chevron-down').hide().fadeToggle('slow');
+    $('.fa').hide().fadeToggle('slow');
   }
   componentDidUpdate(){
     this._updateGameDay();
