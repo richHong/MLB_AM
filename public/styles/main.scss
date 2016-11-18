@@ -91,18 +91,17 @@ $primary-font: 'Archivo Narrow', sans-serif;
   text-align: center;
   color: white;
   position:relative;
+  font-size: 1rem;
 }
 .top-box {
   @extend .box;
-  font-size: 1em;
-  span{
-    width: 124px;
-    text-overflow: ellipsis;
-  }
+  transform: scale(1.5);
+  margin-bottom: 5px;
 }
 .bottom-box {
   @extend .box;
-  font-size: 0.75em;
+  margin-top: 5px;
+  transform: scale(1.25);
 }
 .logo {
   height: 40vh;

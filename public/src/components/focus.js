@@ -21,9 +21,9 @@ export default class Focus extends Component {
     return (
       <div id='focus' className='focus-game'>
         <div className='top-box bounce'>
-          <span>{`${away_team_city} ${away_team_name}`}</span>
+          <span>{away_team_city} @</span>
           <br/>
-          <span>{`${home_team_city} ${home_team_name}`}</span>
+          <span>{home_team_city}</span>
         </div>
         <img className='focus-thumbnail bounce' 
              src={video_thumbnail || replaceImg} 

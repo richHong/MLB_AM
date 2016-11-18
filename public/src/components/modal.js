@@ -26,9 +26,9 @@ export class DetailModal extends Component {
           <Modal.Header bsClass='detail-modal'>
             <Modal.Title>
               <div className={away_name_abbrev+' sprite'}></div>
-              <div className='mod-title'>{`${away_team_city} ${away_team_name}`}</div> 
+              <div className='mod-title'>{away_team_name}</div> 
               <div className={home_name_abbrev+' sprite'}></div>
-              <div className='mod-title'>{`${home_team_city} ${home_team_name}`}</div>
+              <div className='mod-title'>{home_team_name}</div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
