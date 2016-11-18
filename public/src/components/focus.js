@@ -7,7 +7,7 @@ import { imgError,
 
 export default class Focus extends Component {
   componentDidMount() {
-    $('.bounce').hide().slideToggle('fast');
+    $('.focus-thumbnail').hide().slideToggle('fast');
     scrollIntoView(document.getElementById('focus'));
   }
   render() {
@@ -25,7 +25,7 @@ export default class Focus extends Component {
           <br/>
           <span>{home_team_city}</span>
         </div>
-        <img className='focus-thumbnail bounce' 
+        <img className='focus-thumbnail' 
              src={video_thumbnail || replaceImg} 
              onError={err => imgError(this.img)} 
              ref={img => this.img = img}/>
