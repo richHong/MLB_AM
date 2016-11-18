@@ -1,0 +1,171 @@
+/********** Fix for Safari bug not styling #app *********/
+
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+#app {
+  @include background-size(cover);
+  background: url('http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  font-family: 'Archivo Narrow', sans-serif;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/********* Sprites CSS **********/
+
+.sprite {
+  margin: 0 auto;
+  transform: scale(0.75);
+}
+.ATL {
+  background: url('../assets/sprites.png') no-repeat -243px -13px;
+  width: 67px;
+  height: 67px;
+}
+.ARI {
+  background: url('../assets/sprites.png') no-repeat -100px -15px;
+  width: 67px;
+  height: 63px;
+}
+.BAL {
+  background: url('../assets/sprites.png') no-repeat -171px -13px;
+  width: 67px;
+  height: 65px;
+}
+.BOS {
+  background: url('../assets/sprites.png') no-repeat -243px -13px;
+  width: 67px;
+  height: 67px;
+}
+.STL {
+  background: url('../assets/sprites.png') no-repeat -315px -13px;
+  width: 67px;
+  height: 67px;
+}
+.CHC {
+  background: url('../assets/sprites.png') no-repeat -28px -90px;
+  width: 67px;
+  height: 67px;
+}
+.DET {
+  background: url('../assets/sprites.png') no-repeat -100px -90px;
+  width: 67px;
+  height: 67px;
+}
+.KC {
+  background: url('../assets/sprites.png') no-repeat -171px -90px;
+  width: 67px;
+  height: 67px;
+}
+.LAA {
+  background: url('../assets/sprites.png') no-repeat -243px -90px;
+  width: 67px;
+  height: 67px;
+}
+.LAD {
+  background: url('../assets/sprites.png') no-repeat -315px -90px;
+  width: 67px;
+  height: 67px;
+}
+.CIN {
+  background: url('../assets/sprites.png') no-repeat -28px -165px;
+  width: 67px;
+  height: 67px;
+}
+.HOU {
+  background: url('../assets/sprites.png') no-repeat -100px -165px;
+  width: 67px;
+  height: 67px;
+}
+.MIA {
+  background: url('../assets/sprites.png') no-repeat -173px -168px;
+  width: 63px;
+  height: 61px;
+}
+.MIL {
+  background: url('../assets/sprites.png') no-repeat -243px -165px;
+  width: 67px;
+  height: 67px;
+}
+.NYM {
+  background: url('../assets/sprites.png') no-repeat -315px -165px;
+  width: 67px;
+  height: 67px;
+}
+.CLE {
+  background: url('../assets/sprites.png') no-repeat -26px -236px;
+  width: 71px;
+  height: 76px;
+}
+.NYY {
+  background: url('../assets/sprites.png') no-repeat -100px -241px;
+  width: 67px;
+  height: 67px;
+}
+.PIT {
+  background: url('../assets/sprites.png') no-repeat -172px -241px;
+  width: 67px;
+  height: 66px;
+}
+.PHI {
+  background: url('../assets/sprites.png') no-repeat -243px -241px;
+  width: 66px;
+  height: 67px;
+}
+.TOR {
+  background: url('../assets/sprites.png') no-repeat -315px -241px;
+  width: 66px;
+  height: 65px;
+}
+.COL {
+  background: url('../assets/sprites.png') no-repeat -30px -318px;
+  width: 63px;
+  height: 67px;
+}
+.TEX {
+  background: url('../assets/sprites.png') no-repeat -100px -318px;
+  width: 67px;
+  height: 67px;
+}
+.TB {
+  background: url('../assets/sprites.png') no-repeat -171px -318px;
+  width: 67px;
+  height: 67px;
+}
+.SEA {
+  background: url('../assets/sprites.png') no-repeat -243px -318px;
+  width: 67px;
+  height: 67px;
+}
+.OAK {
+  background: url('../assets/sprites.png') no-repeat -315px -318px;
+  width: 67px;
+  height: 67px;
+}
+.CWS {
+  background: url('../assets/sprites.png') no-repeat -28px -393px;
+  width: 67px;
+  height: 67px;
+}
+.MIN {
+  background: url('../assets/sprites.png') no-repeat -100px -393px;
+  width: 67px;
+  height: 67px;
+}
+.SD {
+  background: url('../assets/sprites.png') no-repeat -172px -393px;
+  width: 67px;
+  height: 66px;
+}
+.SF {
+  background: url('../assets/sprites.png') no-repeat -243px -393px;
+  width: 67px;
+  height: 66px;
+}
+.WSH {
+  background: url('../assets/sprites.png') no-repeat -315px -393px;
+  width: 67px;
+  height: 67px;
+}
