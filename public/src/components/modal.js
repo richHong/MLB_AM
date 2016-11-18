@@ -20,7 +20,7 @@ export class DetailModal extends Component {
             away_name_abbrev,
             home_name_abbrev } = this.props.game;
     const {toggleModal, showModal} = this.props;
-    let awayScore = 0, homeScore = 0;
+    let awayScore = null, homeScore = null;
     let scores;
     return(
       <div>
