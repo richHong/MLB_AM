@@ -29,10 +29,10 @@ export class DetailModal extends Component {
             <Modal.Title>
 
               <div className='floater'>
-                <div className='sprite'>
-                  <div className={away_name_abbrev}></div>
+                <div className ='sprite'>
+                  <div className={home_name_abbrev}></div>
                 </div>
-                <div className='mod-title'>{away_team_name}</div>
+                <div className='mod-title'>{home_team_name}</div>
               </div>
 
               <div className='game-info'>
@@ -44,10 +44,10 @@ export class DetailModal extends Component {
               </div>  
 
               <div className='floater'>
-                <div className ='sprite'>
-                  <div className={home_name_abbrev}></div>
+                <div className='sprite'>
+                  <div className={away_name_abbrev}></div>
                 </div>
-                <div className='mod-title'>{home_team_name}</div>
+                <div className='mod-title'>{away_team_name}</div>
               </div>
 
             </Modal.Title>
