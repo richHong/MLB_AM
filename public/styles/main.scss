@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+$primary-font: 'Archivo Narrow', sans-serif;
+@-webkit-keyframes glow {
+  50% { box-shadow: 0 0 20px red; }
+}
+@keyframes glow;
 @mixin flex-direction($direction) {
 -webkit-box-flex-direction: $direction;
    -moz-box-flex-direction: $direction;
@@ -13,27 +18,26 @@
 }
 @mixin justify-content($flex){
   -webkit-justify-content: $flex;
+     -moz-justify-content: $flex;
           justify-content: $flex;
 }
 @mixin align-items($flex){
   -webkit-align-items: $flex;
+     -moz-align-items: $flex;
           align-items: $flex;
 }
-@mixin background-size($type){
--webkit-background-size: $type;
-   -moz-background-size: $type;
-     -o-background-size: $type;
-        background-size: $type;
+@mixin background-size($size){
+-webkit-background-size: $size;
+   -moz-background-size: $size;
+     -o-background-size: $size;
+        background-size: $size;
 }
-$primary-font: 'Archivo Narrow', sans-serif;
-@-webkit-keyframes glow {
-  50% { box-shadow: 0 0 20px red; }
-}
-@keyframes glow 
-
 #app {
-  background: url(http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg) no-repeat center center fixed; 
   @include background-size(cover);
+  background: url('http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
   font-family: $primary-font;
   display: flex;
   height: 100vh;
@@ -86,10 +90,15 @@ $primary-font: 'Archivo Narrow', sans-serif;
   line-height: 120%;
   text-align: center;
   color: white;
+  position:relative;
 }
 .top-box {
   @extend .box;
   font-size: 1em;
+  span{
+    width: 124px;
+    text-overflow: ellipsis;
+  }
 }
 .bottom-box {
   @extend .box;
@@ -117,7 +126,6 @@ $primary-font: 'Archivo Narrow', sans-serif;
   color: white;
 }
 .detail-modal {
-  font-family: $primary-font;
   text-align: center;
   font-size: 1em;
 }
@@ -145,8 +153,9 @@ $primary-font: 'Archivo Narrow', sans-serif;
 .spinner {
   height: 10vh;
 }
-.toast-notification{
+.toast-notification {
   width: 100vw !important;
 }
-
-
+.scroll-hide {
+  overflow-x: hidden;
+}

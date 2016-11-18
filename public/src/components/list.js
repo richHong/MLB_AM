@@ -45,7 +45,7 @@ export class List extends Component {
         {this.props.games.map((game,i) => {
           return this._renderGame(game,i)
         })}
-      </div>  
+      </div>
     );
   }
 }

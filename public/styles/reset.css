@@ -46,3 +46,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/********** Fix for Safari bug not styling #app *********/
+
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
+#app {
+  @include background-size(cover);
+  background: url('http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg');
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  font-family: 'Archivo Narrow', sans-serif;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
