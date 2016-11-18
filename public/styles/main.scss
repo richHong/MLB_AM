@@ -149,7 +149,7 @@ $primary-font: 'Archivo Narrow', sans-serif;
 .spinner-container {
   @extend .container;
   position: fixed;
-  top: 88.5vh;
+  top: 89vh;
 }
 .spinner {
   height: 10vh;
@@ -164,4 +164,7 @@ $primary-font: 'Archivo Narrow', sans-serif;
 .floater-right {
   float: right;
   margin: 10px;
+}
+.game-info {
+  height: 70px;
 }

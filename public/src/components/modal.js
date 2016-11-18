@@ -21,24 +21,31 @@ export class DetailModal extends Component {
             home_name_abbrev } = this.props.game;
     const {toggleModal, showModal} = this.props;
     let awayScore = 0, homeScore = 0;
+    let scores;
     return(
       <div>
-        <Modal show={showModal} onHide={e => toggleModal()} bsSize='small'>
+        <Modal show={showModal} onHide={e => toggleModal()} bsSize='sm'>
           <Modal.Header bsClass='detail-modal'>
             <Modal.Title>
+
               <div className='floater-right'>
-                <div className={away_name_abbrev+' sprite'}></div>
+                <div className='sprite'>
+                  <div className={away_name_abbrev}></div>
+                </div>
                 <div className='mod-title'>{away_team_name}</div>
               </div>
-              <div className='floater-left'> 
-                <div className={home_name_abbrev+' sprite'}></div>
+              <div className='floater-left'>
+                <div className ='sprite'>
+                  <div className={home_name_abbrev}></div>
+                </div>
                 <div className='mod-title'>{home_team_name}</div>
               </div>
+
             </Modal.Title>
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
            
-            <div>
+            <div className='game-info'>
               <br/>
               <div>{venue}</div>
               <div>{location}</div>
@@ -49,31 +56,32 @@ export class DetailModal extends Component {
             <table className='score-board'>
               <thead>
                <tr>
+                <th><b>Home</b></th>
                 <th><b>Inning</b></th>
-                <th><b>{home_team_name}</b></th>
-                <th><b>{away_team_name}</b></th> 
+                <th><b>Away</b></th> 
               </tr>
               </thead>
             <tbody>
               {linescore ? linescore.inning.map((inning,i) => {
                 return (
                   <tr key={i}>
-                    <td>{i+1}</td>
-                    {_.map(inning, (score, key) => {
-                      if (key === 'away'){awayScore += +score}
-                      else if (key === 'home'){homeScore += +score}
+                    {scores = _.map(inning, (score, key) => {
+                      if (key === 'home'){homeScore += +score}
+                      else if (key === 'away'){awayScore += +score}
                       return <td key={key}>{score}</td>
                     })}
+                    {scores.splice(1,0,<td key={i+1}>{i+1}</td>)}
                   </tr>
                 );
               }) : null}
                 <tr>
-                  <th><b>Final</b></th>
                   <td><b>{homeScore}</b></td>
+                  <th><b>Final</b></th>
                   <td><b>{awayScore}</b></td>
                 </tr>
               </tbody>
             </table>
+
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={e => toggleModal()}>Close</Button>
