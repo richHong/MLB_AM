@@ -20,6 +20,7 @@ export class DetailModal extends Component {
             away_name_abbrev,
             home_name_abbrev } = this.props.game;
     const {toggleModal, showModal} = this.props;
+    let awayScore = 0, homeScore = 0;
     return(
       <div>
         <Modal show={showModal} onHide={e => toggleModal()} bsSize='small'>
@@ -48,9 +49,9 @@ export class DetailModal extends Component {
             <table className='score-board'>
               <thead>
                <tr>
-                <th>Inning</th>
-                <th>{away_team_name}</th> 
-                <th>{home_team_name}</th>
+                <th><b>Inning</b></th>
+                <th><b>{home_team_name}</b></th>
+                <th><b>{away_team_name}</b></th> 
               </tr>
               </thead>
             <tbody>
@@ -59,11 +60,18 @@ export class DetailModal extends Component {
                   <tr key={i}>
                     <td>{i+1}</td>
                     {_.map(inning, (score, key) => {
+                      if (key === 'away'){awayScore += +score}
+                      else if (key === 'home'){homeScore += +score}
                       return <td key={key}>{score}</td>
                     })}
                   </tr>
                 );
               }) : null}
+                <tr>
+                  <th><b>Final</b></th>
+                  <td><b>{homeScore}</b></td>
+                  <td><b>{awayScore}</b></td>
+                </tr>
               </tbody>
             </table>
           </Modal.Body>
