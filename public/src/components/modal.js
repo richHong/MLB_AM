@@ -23,21 +23,27 @@ export class DetailModal extends Component {
     return(
       <div>
         <Modal show={showModal} onHide={e => toggleModal()} bsSize='small'>
-          <Modal.Header bsClass='detail-modal' closeButton>
+          <Modal.Header bsClass='detail-modal'>
             <Modal.Title>
-              <div className={away_name_abbrev+' sprite'}></div>
-              <div className='mod-title'>{away_team_name}</div> 
-              <div className={home_name_abbrev+' sprite'}></div>
-              <div className='mod-title'>{home_team_name}</div>
+              <div className='floater-left'>
+                <div className={away_name_abbrev+' sprite'}></div>
+                <div className='mod-title'>{away_team_name}</div>
+              </div>
+              <div className='floater-right'> 
+                <div className={home_name_abbrev+' sprite'}></div>
+                <div className='mod-title'>{home_team_name}</div>
+              </div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
-          
-            <hr/>
-            <div>{venue}</div>
-            <div>{location}</div>
-            <div>{`${time_date.slice(5,10)}/${time_date.slice(0,4)} ${time_date.slice(11)} ${time_zone}`}</div>
-            <hr/>
+           
+            <div>
+              <br/>
+              <div>{venue}</div>
+              <div>{location}</div>
+              <div>{`${time_date.slice(5,10)}/${time_date.slice(0,4)} ${time_date.slice(11)} ${time_zone}`}</div>
+              <br/>
+            </div>
 
             <table className='score-board'>
               <thead>
@@ -60,9 +66,10 @@ export class DetailModal extends Component {
               }) : null}
               </tbody>
             </table>
-
-            <br />
           </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={e => toggleModal()}>Close</Button>
+          </Modal.Footer>
         </Modal>
       </div>
     );
