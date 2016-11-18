@@ -26,11 +26,11 @@ export class DetailModal extends Component {
         <Modal show={showModal} onHide={e => toggleModal()} bsSize='small'>
           <Modal.Header bsClass='detail-modal'>
             <Modal.Title>
-              <div className='floater-left'>
+              <div className='floater-right'>
                 <div className={away_name_abbrev+' sprite'}></div>
                 <div className='mod-title'>{away_team_name}</div>
               </div>
-              <div className='floater-right'> 
+              <div className='floater-left'> 
                 <div className={home_name_abbrev+' sprite'}></div>
                 <div className='mod-title'>{home_team_name}</div>
               </div>
