@@ -28,7 +28,7 @@ export class DetailModal extends Component {
           <Modal.Header bsClass='detail-modal'>
             <Modal.Title>
 
-              <div className='floater-right'>
+              <div className='floater'>
                 <div className='sprite'>
                   <div className={away_name_abbrev}></div>
                 </div>
@@ -43,7 +43,7 @@ export class DetailModal extends Component {
                 <br/>
               </div>  
 
-              <div className='floater-left'>
+              <div className='floater'>
                 <div className ='sprite'>
                   <div className={home_name_abbrev}></div>
                 </div>
@@ -54,8 +54,6 @@ export class DetailModal extends Component {
           </Modal.Header>
           <Modal.Body bsClass='detail-modal'>
            
-            
-
             <table className='score-board'>
               <thead>
                <tr>

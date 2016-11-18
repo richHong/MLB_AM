@@ -157,17 +157,12 @@ $primary-font: 'Archivo Narrow', sans-serif;
 .toast-notification {
   width: 100vw !important;
 }
-.floater-left {
-  float: left;
-  width: 33.33%;
-}
-.floater-right {
+.floater {
   float: left;
   width: 33.33%;
 }
 .game-info {
-  float: left;
+  @extend .floater;
   font-size: 12px;
-  width: 33.33%;
   height: 70px;
 }
