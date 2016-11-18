@@ -56,7 +56,9 @@ export class Calendar extends Component {
   render() {
     return (
       <div className='calendar-container'>
+        <i onClick={e => this._updateDate(1)} className="fa fa-chevron-up" aria-hidden="true"></i>
         <div>{this._formatDate(this.props.date)}</div>
+        <i onClick={e => this._updateDate(-1)} className="fa fa-chevron-down" aria-hidden="true"></i>
       </div>
     );
   }

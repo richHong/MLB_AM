@@ -19,8 +19,8 @@ export default class Focus extends Component {
            location, 
            video_thumbnail} = this.props.game;
     return (
-      <div id='focus' className='focus-game'>
-        <div className='top-box bounce'>
+      <div id='focus' className='focus-game' onClick={e => this.props._toggleModal()}>
+        <div className='top-box'>
           <span>{away_team_city} @</span>
           <br/>
           <span>{home_team_city}</span>
@@ -29,7 +29,7 @@ export default class Focus extends Component {
              src={video_thumbnail || replaceImg} 
              onError={err => imgError(this.img)} 
              ref={img => this.img = img}/>
-        <div className='bottom-box bounce'>
+        <div className='bottom-box'>
           <span>{venue}</span>
           <br/>
           <span>{location}</span>

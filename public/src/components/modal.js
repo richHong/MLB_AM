@@ -22,8 +22,8 @@ export class DetailModal extends Component {
     const {toggleModal, showModal} = this.props;
     return(
       <div>
-        <Modal show={showModal} onHide={e => toggleModal()} bsSize='small' >
-          <Modal.Header bsClass='detail-modal'>
+        <Modal show={showModal} onHide={e => toggleModal()} bsSize='small'>
+          <Modal.Header bsClass='detail-modal' closeButton>
             <Modal.Title>
               <div className={away_name_abbrev+' sprite'}></div>
               <div className='mod-title'>{away_team_name}</div> 

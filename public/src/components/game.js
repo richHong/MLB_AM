@@ -7,7 +7,7 @@ export default class Game extends Component {
   render() {
     const {video_thumbnail} = this.props.game;
     return (
-      <div className='game'>
+      <div className='game' onClick={e => this.props._handleClick(this.props.index)}>
         <img className='thumbnail' 
              src={video_thumbnail || replaceImg} 
              onError={err => imgError(this.img)} 

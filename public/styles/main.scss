@@ -91,7 +91,7 @@ $primary-font: 'Archivo Narrow', sans-serif;
   text-align: center;
   color: white;
   position:relative;
-  font-size: 1rem;
+  font-size: 1.5vh;
 }
 .top-box {
   @extend .box;
@@ -113,15 +113,17 @@ $primary-font: 'Archivo Narrow', sans-serif;
 }
 .calendar-container {
   @extend .container;
+  @include flex-direction(column)
+  align-items: center;
   position: fixed;
-  font-size: 2em;
+  font-size: 4vh;
   color: white;
-  top: 80vh;
+  top: 75vh;
 }
 .no-games {
   text-align: center;
   margin-top: 10vh;
-  font-size: 2em;
+  font-size: 4vh;
   color: white;
 }
 .detail-modal {
@@ -142,7 +144,7 @@ $primary-font: 'Archivo Narrow', sans-serif;
 .spinner-container {
   @extend .container;
   position: fixed;
-  top: 86.5vh;
+  top: 88.5vh;
 }
 .spinner {
   height: 10vh;

@@ -36,8 +36,11 @@ export class List extends Component {
       this.props.toggleModal();
     }
   }
+  _handleClick(index) {
+    this.props.changeIndex(index);
+  }
   _renderGame(game,index) {
-    return index === this.props.index ? <Focus game={game} key={index} /> : <Game game={game} key={index} />;
+    return index === this.props.index ? <Focus game={game} key={index} _toggleModal={this.props.toggleModal.bind(this)}/> : <Game _handleClick={this._handleClick.bind(this)} index={index} game={game} key={index} />;
   }
   render() {
     return (
