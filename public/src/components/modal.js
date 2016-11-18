@@ -41,7 +41,7 @@ export class DetailModal extends Component {
               <br/>
               <div>{venue}</div>
               <div>{location}</div>
-              <div>{`${time_date.slice(5,10)}/${time_date.slice(0,4)} ${time_date.slice(11)} ${time_zone}`}</div>
+              <div>{`${time_date.slice(5,10)}/${time_date.slice(0,4)}`}</div>
               <br/>
             </div>
 
