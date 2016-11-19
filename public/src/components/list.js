@@ -22,17 +22,17 @@ export class List extends Component {
   }
   _handleKeyDown(code) {
     let newIndex;
-    if (code === 39) {        //Left Arrow Key
+    if (code === 39) {        // Right Arrow Key
       newIndex = this.props.index + 1;
       if (newIndex <= this.props.games.length - 1) {
         this.props.changeIndex(newIndex);
       }
-    } else if (code === 37) { // Right Arrow Key
+    } else if (code === 37) { // Left Arrow Key
       newIndex = this.props.index - 1;
       if (newIndex >= 0) {
         this.props.changeIndex(newIndex);
       }
-    } else if (code === 13) { //Enter Key
+    } else if (code === 13) { // Enter Key
       this.props.toggleModal();
     }
   }
