@@ -33,13 +33,10 @@ $primary-font: 'Archivo Narrow', sans-serif;
         background-size: $size;
 }
 #app {
+  background: url('http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg') fixed center center no-repeat;
   @include background-size(cover);
-  background: url('http://mlb.mlb.com/mlb/images/devices/ballpark/1920x1080/1.jpg');
-  background-attachment: fixed;
-  background-position: center center;
-  background-repeat: no-repeat;
+  @include display();
   font-family: $primary-font;
-  display: flex;
   height: 100vh;
   width: 100%;
 }
@@ -54,7 +51,7 @@ $primary-font: 'Archivo Narrow', sans-serif;
   right: 0;
   bottom: 0;
   left: 0;
-  width: 97%;
+  width: 100%;
   height: 50vh;
   overflow-x: auto;
 }
