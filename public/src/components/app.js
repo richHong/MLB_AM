@@ -31,7 +31,7 @@ export class App extends Component {
   render() {
     const {games, index, showSpinner, date, showModal} = this.props;
     return (
-      <div className='main-container'>
+      <div>
         <Logo />
         {games.length ? <DetailModal game={games[index]} showModal={showModal}/> : <NoGames showSpinner={showSpinner}/>}
         {showSpinner ? <Spinner /> : null}
